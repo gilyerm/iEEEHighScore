@@ -1,0 +1,20 @@
+
+the program has a main:
+    1. it recieves input from std,
+    2. gets a number N, then a series of N string inputs length 10.
+    3. it converts each string to a 10bit number (picks LSD of each 'char')
+    4. for each I[10], sends it to function f.
+    5. finally looks at array M[256] using sum, in essence sum 1's in there,
+            then returns (sum*1000 - N);
+
+the class has 2 static things:
+    - array M[256], where we keep either 1/0 in each cell.
+    - array B[50], buffer for remembering last 5 I's sent to f() -- i.e last 4 + current.
+
+the function f does the following:
+    1. makes a very long boolean algebra calc that makes a val[byte];
+    2. then turns on M[val] = 1;
+    =====
+    3. we know there are some things that can be simplified.
+         for example: B just does 'shift left' and keeps previous I's, see above.
+
