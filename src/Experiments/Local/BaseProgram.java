@@ -23,6 +23,7 @@ public class BaseProgram {
 		int last = -1;
 		public int c = 0;
 		int res = -111;
+		Boolean e=null;
 	}
 
 	public static Helper solMain(List<String> inp) {
@@ -35,7 +36,7 @@ public class BaseProgram {
 			for (int j = 0; j < 10; j++) {
 				I[j] = (s.charAt(j) & 1) != 0;
 			}
-			h.last = f(I,h.B,h.M,h.indexs);
+			h.last = f(I, h);
 		}
 		h.res = 1000*sum(h.M)-n;
 		return h;
@@ -47,7 +48,11 @@ public class BaseProgram {
 			retVal += M[i];
 		return retVal;
 	}
-	public static int f(boolean[] I, boolean[] B, char[] M, ArrayList<Integer> indexs) {
+	public static int f(boolean[] I,Helper h) {
+		boolean[] B = h.B;
+		char[] M = h.M;
+		ArrayList<Integer> indexs = h.indexs;
+
 		boolean x1, x2, x3, x4, x5, x6, x7, x8, x9, y1, y2, y3, y4, y5, y6, y7, y8, y9;
 		boolean c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c20, c21, c22, c23;
 		boolean c30, c31, c32, c33, c34, c40, c41, c42, c43, c44, c45;
@@ -108,6 +113,7 @@ public class BaseProgram {
 		}
 		M[val]=1;
 		indexs.add(val);
+		h.e=e;
 		return val;
 		// String bin = arrAsBin(I);
 		// int i = Integer.parseInt(bin, 2);

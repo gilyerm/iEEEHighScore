@@ -1,0 +1,30 @@
+package Experiments.Local;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static Experiments.Local.PrevResults.working2len.first2Diff;
+import static Experiments.Local.v1.EditProgramV1.*;
+import Experiments.Local.v1.EditProgramV1.Helper;
+
+public class Exp4_2 {
+
+	// notes:
+
+	// conclusion:
+	
+	public static void main(String[] args) {
+		for (int[] f2 : first2Diff) {
+//			for (int[] f3 : first2Diff) {
+				List<String> collect = Arrays.asList(f2[0],f2[1]).stream()
+						.map(k -> toBin(k, 10)).collect(Collectors.toList());
+				Helper h = solMain(collect);
+//				if (h.indexs.get(2) !=255 && h.indexs.get(4) !=255)
+					System.out.printf("%s \t=>\t %s\t%s\n", Arrays.toString(f2), h.indexs, h.e.toString() );
+//			}
+		}
+	}
+
+}
+
