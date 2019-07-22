@@ -53,7 +53,6 @@ public class EditProgramV1 {
 
 		char[] M = h.M;
 		ArrayList<Integer> indexs = h.indexs;
-		Queue<DecaByte> decaBytes=new LinkedList<>();
 
 
 		DecaByte X=new DecaByte();
@@ -61,10 +60,10 @@ public class EditProgramV1 {
 
 		boolean[] C = new boolean[10];
 
-		boolean	c10, c11, c12, c20, c21, c22, c23;
-		boolean c30, c31, c32, c33, c34, c40, c41, c42, c43, c44, c45;
-		boolean c51, c52, c53, c54, c55, c62, c63, c64, c65, c73, c74, c75;
-		boolean c84, c85, c95;
+//		boolean	c10, c11, c12, c20, c21, c22, c23;
+//		boolean c30, c31, c32, c33, c34, c40, c41, c42, c43, c44, c45;
+//		boolean c51, c52, c53, c54, c55, c62, c63, c64, c65, c73, c74, c75;
+//		boolean c84, c85, c95;
 
 		B.push(I);
 //		System.out.println("B="+B.toString());
@@ -174,13 +173,6 @@ public class EditProgramV1 {
 //		c44=(c33&c4)|(c34&(!c4));
 //		c45=(c34&c4)| false;
 
-//		boolean[] C40 = CList.get(4);
-//		c40 = C40[0];
-//		c41 = C40[1];
-//		c42 = C40[2];
-//		c43 = C40[3];
-//		c44 = C40[4];
-//		c45 = C40[5];
 
 		final int k = 6;
 		for (int j=5; j <= 9; j++) {
@@ -193,19 +185,9 @@ public class EditProgramV1 {
 			boolean curCDigit = C[i];
 
 			for (int j = p; j < curC.length; j++) {
-				boolean a=false,b=false;
-//				if (j-1>=0){
-					a=prevC [j-1];
-//				}
-//				if (j<prevC.length){
-					b=prevC [j];
-//				}
-				curC[j]=(a&curCDigit)|(b&(!curCDigit));
+				curC[j]=(prevC [j-1]&curCDigit)|(prevC [j]&(!curCDigit));
 			}
 		}
-
-
-
 //		c51=(c40&c5)|(c41&(!c5));
 //		c52=(c41&c5)|(c42&(!c5));
 //		c53=(c42&c5)|(c43&(!c5));
@@ -226,31 +208,47 @@ public class EditProgramV1 {
 //
 //		c95=(c84&c9)|(c85&(!c9));
 
-		c95 = CList.get(9)[5];
-		boolean e=(!c95)|Y.getBit(9);
+		boolean e=(!CList.get(9)[5])|Y.getBit(9);
 
-		boolean[] a= new boolean[10];
+//		boolean[] a= new boolean[10];
+		DecaByte A=new DecaByte();
 
-		a[0]=e|((((!c0)&(!c1)&(!c2)&(!c3)&(!c4))|(c0&c1&c2&c3&c4))^c0^c1^c2^c3^c4^(c3&
-				(((c0^c8)&c1&c2&c4)^((((c0^c1)&c2&c5)^(c1&c4&c7))&c8))));
-		a[1]=e|((((!c0)&(!c1)&(c2)&(!c5)&(c6))|(c0&c1&((!c2)&(!c6))&c5))^c0^c1^c2^c5^c6^(c4&
-				((c0&c1&((c2&c3)^(c5&c6)))^(((c1&c7)^(c6&c9))&c3&c8))));
-		a[2]=e|((((!c0)&(!c1)&(c3)&(!c5)&(!c7))|(c0&c1&(!c3)&c5&c7))^c0^c1^c3^c5^c7^(c0&c1&c2&
-				(c3^c4)&c5)^((c3^c4)&c5&c7&c8&c9));
-		a[3]=e|((c3&c5)^(c3&c6)^(c3&c8)^(c3&c9)^(c5&c6)^(c5&c8)^(c5&c9)^(c6&c8)^(c6&c9)^
-				(c8|c9)^c3^c5^c6^c8^c9^(c0&c1&c3&c6&c9));
-		a[4]=e|((c2&c5)^(c2&c7)^(c2&c8)^(c2&c9)^(c5&c7)^(c5&c8)^(c5&c9)^(c7&c8)^(c7|c9)^
-				(c8&c9)^c2^c5^c7^(((c0&c5&c6)^(c1&c3&c4))&c7&c8));
-		a[5]=e|((c0&c1)^c0^c2^c4^c6^c7^(c0&c1&c2&c3&c4)^(((c0&((c3&c5)^(c2&c4)))^
-				(c1&c4&c6))&c7&c8)^(c3&c4&c6&((c2&c9)^(c5&c7))));
-		a[6]=e|(c0^c1^c3^c4^c7^(c0&c1&c2&c4&c9)^(c0&((c1&c4)^(c3&c8))&c5&c7)^
-				((((((c0^c1)&c5)^(c0&c4))&c2)^(c1&(c2^c7)&c4))&c6&c8));
-		a[7]=e|(c2^c3^c4^(c0&((c2&c3)^((c2^c3)&c7))&c4&c8)^((((c0^c1)&c3&c5)^(((c0^c1)&
-				(c4^c5))&c6))&c7&c8));
+		A.setBit(0,e|((((!c0)&(!c1)&(!c2)&(!c3)&(!c4))|(c0&c1&c2&c3&c4))^c0^c1^c2^c3^c4^(c3&
+				(((c0^c8)&c1&c2&c4)^((((c0^c1)&c2&c5)^(c1&c4&c7))&c8)))));
+		A.setBit(1,e|((((!c0)&(!c1)&(c2)&(!c5)&(c6))|(c0&c1&((!c2)&(!c6))&c5))^c0^c1^c2^c5^c6^(c4&
+				((c0&c1&((c2&c3)^(c5&c6)))^(((c1&c7)^(c6&c9))&c3&c8)))));
+		A.setBit(2,e|((((!c0)&(!c1)&(c3)&(!c5)&(!c7))|(c0&c1&(!c3)&c5&c7))^c0^c1^c3^c5^c7^(c0&c1&c2&
+				(c3^c4)&c5)^((c3^c4)&c5&c7&c8&c9)));
+		A.setBit(3,e|((c3&c5)^(c3&c6)^(c3&c8)^(c3&c9)^(c5&c6)^(c5&c8)^(c5&c9)^(c6&c8)^(c6&c9)^
+				(c8|c9)^c3^c5^c6^c8^c9^(c0&c1&c3&c6&c9)));
+		A.setBit(4,e|((c2&c5)^(c2&c7)^(c2&c8)^(c2&c9)^(c5&c7)^(c5&c8)^(c5&c9)^(c7&c8)^(c7|c9)^
+				(c8&c9)^c2^c5^c7^(((c0&c5&c6)^(c1&c3&c4))&c7&c8)));
+		A.setBit(5,e|((c0&c1)^c0^c2^c4^c6^c7^(c0&c1&c2&c3&c4)^(((c0&((c3&c5)^(c2&c4)))^
+				(c1&c4&c6))&c7&c8)^(c3&c4&c6&((c2&c9)^(c5&c7)))));
+		A.setBit(6,e|(c0^c1^c3^c4^c7^(c0&c1&c2&c4&c9)^(c0&((c1&c4)^(c3&c8))&c5&c7)^
+				((((((c0^c1)&c5)^(c0&c4))&c2)^(c1&(c2^c7)&c4))&c6&c8)));
+		A.setBit(7,e|(c2^c3^c4^(c0&((c2&c3)^((c2^c3)&c7))&c4&c8)^((((c0^c1)&c3&c5)^(((c0^c1)&
+				(c4^c5))&c6))&c7&c8)));
+//		a[0]=e|((((!c0)&(!c1)&(!c2)&(!c3)&(!c4))|(c0&c1&c2&c3&c4))^c0^c1^c2^c3^c4^(c3&
+//				(((c0^c8)&c1&c2&c4)^((((c0^c1)&c2&c5)^(c1&c4&c7))&c8))));
+//		a[1]=e|((((!c0)&(!c1)&(c2)&(!c5)&(c6))|(c0&c1&((!c2)&(!c6))&c5))^c0^c1^c2^c5^c6^(c4&
+//				((c0&c1&((c2&c3)^(c5&c6)))^(((c1&c7)^(c6&c9))&c3&c8))));
+//		a[2]=e|((((!c0)&(!c1)&(c3)&(!c5)&(!c7))|(c0&c1&(!c3)&c5&c7))^c0^c1^c3^c5^c7^(c0&c1&c2&
+//				(c3^c4)&c5)^((c3^c4)&c5&c7&c8&c9));
+//		a[3]=e|((c3&c5)^(c3&c6)^(c3&c8)^(c3&c9)^(c5&c6)^(c5&c8)^(c5&c9)^(c6&c8)^(c6&c9)^
+//				(c8|c9)^c3^c5^c6^c8^c9^(c0&c1&c3&c6&c9));
+//		a[4]=e|((c2&c5)^(c2&c7)^(c2&c8)^(c2&c9)^(c5&c7)^(c5&c8)^(c5&c9)^(c7&c8)^(c7|c9)^
+//				(c8&c9)^c2^c5^c7^(((c0&c5&c6)^(c1&c3&c4))&c7&c8));
+//		a[5]=e|((c0&c1)^c0^c2^c4^c6^c7^(c0&c1&c2&c3&c4)^(((c0&((c3&c5)^(c2&c4)))^
+//				(c1&c4&c6))&c7&c8)^(c3&c4&c6&((c2&c9)^(c5&c7))));
+//		a[6]=e|(c0^c1^c3^c4^c7^(c0&c1&c2&c4&c9)^(c0&((c1&c4)^(c3&c8))&c5&c7)^
+//				((((((c0^c1)&c5)^(c0&c4))&c2)^(c1&(c2^c7)&c4))&c6&c8));
+//		a[7]=e|(c2^c3^c4^(c0&((c2&c3)^((c2^c3)&c7))&c4&c8)^((((c0^c1)&c3&c5)^(((c0^c1)&
+//				(c4^c5))&c6))&c7&c8));
 		int val = 0;
 		for (int i = 7; i >= 0; i--) {
 			val = val << 1;
-			if (a[i]) val = val | 1;
+			if (A.getBit(i)) val = val | 1;
 		}
 		M[val]=1;
 		indexs.add(val);
