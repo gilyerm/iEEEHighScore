@@ -1,13 +1,15 @@
 package Experiments.Local.v1;
 
-import sun.misc.Queue;
+import com.sun.istack.internal.*;
 
 import java.util.LinkedList;
 
 public class BufferQueue<T> {
-    private LinkedList<T> linkedList;
-    private int maxSize;
-    public BufferQueue(int maxSize,T defualt) {
+
+    private final LinkedList<T> linkedList;
+    private final int maxSize;
+
+    public BufferQueue(@NotNull final int maxSize,@Nullable final T defualt) {
         this.maxSize=maxSize;
         this.linkedList=new LinkedList<>();
         for (int i = 0; i < maxSize; i++) {
@@ -15,7 +17,7 @@ public class BufferQueue<T> {
         }
     }
 
-    public void push(T t) {
+    public void push(@Nullable final T t) {
         if (this.linkedList.size()>=maxSize) this.pop();
         this.linkedList.addFirst(t);
     }
@@ -26,7 +28,7 @@ public class BufferQueue<T> {
         return this.linkedList.peek();
     }
 
-    public T cell(int index){
+    public T cell(@NotNull final int index){
         if (index<0||index>=maxSize) throw new IndexOutOfBoundsException("bad Index");
         return linkedList.get(index);
     }

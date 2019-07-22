@@ -1,10 +1,13 @@
 package Experiments.Local;
-import java.util.Arrays;
+
+import Experiments.Local.v1.DecaByte;
+import Experiments.Local.v1.EditProgramV1.Helper;
+
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-import static Experiments.Local.v1.EditProgramV1.*;
-import Experiments.Local.v1.EditProgramV1.Helper;
+import static Experiments.Local.v1.EditProgramV1.solMain;
 
 public class Exp2 {
 
@@ -15,8 +18,8 @@ public class Exp2 {
 
 	public static void main(String[] args) {
 
-		List<String> collect = Arrays.asList(15,16).stream()
-				.map(j -> toBin(j, 10)).collect(Collectors.toList());
+		List<String> collect = Stream.of(15,16)
+				.map(j -> DecaByte.toBin(j, DecaByte.SIZE)).collect(Collectors.toList());
 		Helper h = solMain(collect);
 		System.out.printf("%s \t=>\t %s\t%s\n", collect.toString(), h.indexs, h.e.toString() );
 

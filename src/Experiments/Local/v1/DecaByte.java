@@ -2,50 +2,52 @@ package Experiments.Local.v1;
 
 import com.sun.istack.internal.NotNull;
 
-import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 public class DecaByte {
-    private boolean[] deca;
+    public static final int SIZE=10;
 
-    public DecaByte(@NotNull boolean[] deca) {
-        if (deca.length!=10) throw new RuntimeException("bad length");
+    private final boolean[] deca;
+
+    public DecaByte(@NotNull final boolean[] deca) {
+        if (deca.length!=SIZE) throw new RuntimeException("bad length");
         this.deca = deca.clone();
     }
 
     public DecaByte() {
-        this(new boolean[10]);
+        this(new boolean[SIZE]);
     }
-    public DecaByte(Integer num) {
-        deca=new boolean[10];
-        String s = toBin(num, 10);
-        for (int j = 0; j < 10; j++) {
+    public DecaByte(@NotNull final Integer num) {
+        deca=new boolean[SIZE];
+        String s = toBin(num, SIZE);
+        for (int j = 0; j < SIZE; j++) {
             deca[j] = (s.charAt(j) & 1) != 0;
         }
     }
 
-    public boolean getBit(int index){
-        if (index<0||index>=10) throw new RuntimeException("bad Index");
+    public boolean getBit(@NotNull final int index){
+        if (index<0||index>=SIZE) throw new IndexOutOfBoundsException("bad Index got index="+index);
         return deca[index];
     }
-    public void setBit(int index,boolean b){
-        if (index<0||index>=10) throw new RuntimeException("bad Index");
-        this.deca[index]=b;
+    public void setBit(@NotNull final int index,@NotNull final boolean bit){
+        if (index<0||index>=SIZE) throw new IndexOutOfBoundsException("bad Index got index="+index);
+        this.deca[index]=bit;
     }
 
     @Override
     public String toString() {
-        return  Integer.parseInt(arrAsBin(deca),2)+"";
+        return Integer.parseInt(arrAsBin(deca),2)+"";
+    }
+    public String toStringAsBin(){
+        return arrAsBin(deca);
     }
 
-    private static String arrAsBin(boolean[] I) {
+    public static String arrAsBin(@NotNull final boolean[] I) {
 		return IntStream.range(0, I.length).mapToObj(idx -> I[idx])
 				.map(b -> b ? "1" : "0").collect(Collectors.joining(""));
 	}
 
-    private static String toBin(int i, int len) {
+    public static String toBin(@NotNull final int i,@NotNull final int len) {
         String s = Integer.toBinaryString(i);
         return Stream.generate(() -> "0").limit(len-s.length()).collect(Collectors.joining("")) + s;
     }
