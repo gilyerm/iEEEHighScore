@@ -119,4 +119,6 @@ public class BaseProgram {
 		// int i = Integer.parseInt(bin, 2);
 		// System.out.printf("#%d: %d << %s = %d\n",++c,val,bin,i);
 	}
+
+
 }
