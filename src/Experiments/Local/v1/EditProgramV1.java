@@ -61,12 +61,10 @@ public class EditProgramV1 {
 							));
 		}
 
+		/// C = init "0"
 		for (int i = 0; i < B.getMaxSize(); i++) {
-			for (int j = 0; j < 10; j++) {
-				C.setBit(j,C.getBit(j)|B.cell(i).getBit(j));
-			}
+			C = DecaByte.OR(C,B.cell(i));
 		}
-
 
 		ArrayList<DecaByte> CList = new ArrayList<>();
 		final int offset=1;
@@ -77,7 +75,7 @@ public class EditProgramV1 {
 			}
 
 			DecaByte C10 = CList.get(1);
-			C10.setBit(0+offset, !(C.getBit(0) | C.getBit(1)));
+			C10.setBit(0+offset,   !(C.getBit(0) | C.getBit(1)));
 			C10.setBit(1+offset, C.getBit(0) ^ C.getBit(1));
 			C10.setBit(2+offset, C.getBit(0) & C.getBit(1));
 

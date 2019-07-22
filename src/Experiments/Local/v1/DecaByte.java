@@ -86,4 +86,20 @@ public class DecaByte {
     public int hashCode() {
         return Arrays.hashCode(deca);
     }
+
+
+    public static DecaByte OR(DecaByte o1,DecaByte o2){
+        DecaByte decaByte=new DecaByte();
+        for (int j = 0; j < DecaByte.SIZE; j++) {
+            decaByte.setBit(j,o1.getBit(j)|o2.getBit(j));
+        }
+        return decaByte;
+    }
+    public static DecaByte AND(DecaByte o1,DecaByte o2){
+        DecaByte decaByte=new DecaByte();
+        for (int j = 0; j < DecaByte.SIZE; j++) {
+            decaByte.setBit(j,o1.getBit(j)&o2.getBit(j));
+        }
+        return decaByte;
+    }
 }
