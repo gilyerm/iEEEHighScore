@@ -44,64 +44,15 @@ public class EditProgramV3 {
 	}
 
 	public static int f(DecaByte I, Helper h) {
-		DecaByte A=new DecaByte();
+
 		BufferQueue<DecaByte> B = h.B;
-		DecaByte C=new DecaByte();
-
-		DecaByte X=new DecaByte();
-		DecaByte Y=new DecaByte();
-
 		B.push(I);
 
-//		{
-//			X.setBit(0, I.getBit(0));
-//			for (int i = 1; i < DecaByte.SIZE; i++) {
-//				X.setBit(i, X.getBit(i - 1) | I.getBit(i));
-//			}
-//
-//			Y.setBit(0, !X.getBit(9));
-//			for (int i = 1; i < DecaByte.SIZE; i++) {
-//				Y.setBit(i,
-//						Y.getBit(i - 1) | (
-//								X.getBit(i - 1) & I.getBit(i)
-//						));
-//			}
-//		}
-//		Y.setBit(9,I.bitCount()!=1);
-
 		/// C = init "0"
+		DecaByte C=new DecaByte();
 		for (int i = 0; i < B.getMaxSize(); i++) {
 			C = DecaByte.OR(C,B.cell(i));
 		}
-		ArrayList<DecaByte> CList = new ArrayList<>();
-//		final int offset=1;
-//		{
-//			CList.add(0, null);
-//			for (int i = 1; i <= 9; i++) {
-//				CList.add(i, new DecaByte());
-//			}
-//
-//			DecaByte C10 = CList.get(1);
-//			C10.setBit(0+offset,   !(C.getBit(0) | C.getBit(1)));
-//			C10.setBit(1+offset, C.getBit(0) ^ C.getBit(1));
-//			C10.setBit(2+offset, C.getBit(0) & C.getBit(1));
-//
-//			for (int i = 2; i < CList.size(); i++) {  // for C20-C90
-//				DecaByte prevC = CList.get(i - 1);
-//				DecaByte curC = CList.get(i);
-//				boolean curCDigit = C.getBit(i);
-//
-//				// code makes 2 changes: use of decabyte and
-//				// assuming "non existent" indexs to be FLASE!
-//				// also, made all shift over by 1 (20-23 => 21-24), so no need for IFs!
-//				for (int j = offset; j < DecaByte.SIZE; j++) {
-//					curC.setBit(j, (prevC.getBit(j - 1) & curCDigit) | (prevC.getBit(j) & (!curCDigit)));
-//				}
-//			}
-//		}
-
-		boolean e=((C.bitCount()!=5))|(I.bitCount()!=1);
-//		boolean e=(!CList.get(9).getBit(5+offset))|Y.getBit(9);
 
 		boolean c0=C.getBit(0),
 				c1=C.getBit(1),
@@ -114,34 +65,38 @@ public class EditProgramV3 {
 				c8=C.getBit(8),
 				c9=C.getBit(9);
 
-		{
-			A.setBit(0,e|((((!c0)&(!c1)&(!c2)&(!c3)&(!c4))|(c0&c1&c2&c3&c4))^c0^c1^c2^c3^c4^(c3&
+		DecaByte A;
+		if (C.bitCount()==5 && I.bitCount()==1){
+			A=new DecaByte();
+			A.setBit(0,((((!c0)&(!c1)&(!c2)&(!c3)&(!c4))|(c0&c1&c2&c3&c4))^c0^c1^c2^c3^c4^(c3&
 					(((c0^c8)&c1&c2&c4)^((((c0^c1)&c2&c5)^(c1&c4&c7))&c8)))));
-			A.setBit(1,e|((((!c0)&(!c1)&(c2)&(!c5)&(c6))|(c0&c1&((!c2)&(!c6))&c5))^c0^c1^c2^c5^c6^(c4&
+			A.setBit(1,((((!c0)&(!c1)&(c2)&(!c5)&(c6))|(c0&c1&((!c2)&(!c6))&c5))^c0^c1^c2^c5^c6^(c4&
 					((c0&c1&((c2&c3)^(c5&c6)))^(((c1&c7)^(c6&c9))&c3&c8)))));
-			A.setBit(2,e|((((!c0)&(!c1)&(c3)&(!c5)&(!c7))|(c0&c1&(!c3)&c5&c7))^c0^c1^c3^c5^c7^(c0&c1&c2&
+			A.setBit(2,((((!c0)&(!c1)&(c3)&(!c5)&(!c7))|(c0&c1&(!c3)&c5&c7))^c0^c1^c3^c5^c7^(c0&c1&c2&
 					(c3^c4)&c5)^((c3^c4)&c5&c7&c8&c9)));
-			A.setBit(3,e|((c3&c5)^(c3&c6)^(c3&c8)^(c3&c9)^(c5&c6)^(c5&c8)^(c5&c9)^(c6&c8)^(c6&c9)^
+			A.setBit(3,((c3&c5)^(c3&c6)^(c3&c8)^(c3&c9)^(c5&c6)^(c5&c8)^(c5&c9)^(c6&c8)^(c6&c9)^
 					(c8|c9)^c3^c5^c6^c8^c9^(c0&c1&c3&c6&c9)));
-			A.setBit(4,e|((c2&c5)^(c2&c7)^(c2&c8)^(c2&c9)^(c5&c7)^(c5&c8)^(c5&c9)^(c7&c8)^(c7|c9)^
+			A.setBit(4,((c2&c5)^(c2&c7)^(c2&c8)^(c2&c9)^(c5&c7)^(c5&c8)^(c5&c9)^(c7&c8)^(c7|c9)^
 					(c8&c9)^c2^c5^c7^(((c0&c5&c6)^(c1&c3&c4))&c7&c8)));
-			A.setBit(5,e|((c0&c1)^c0^c2^c4^c6^c7^(c0&c1&c2&c3&c4)^
+			A.setBit(5,((c0&c1)^c0^c2^c4^c6^c7^(c0&c1&c2&c3&c4)^
 					(((c0&((c3&c5)^(c2&c4)))^(c1&c4&c6))&c7&c8)^(c3&c4&c6&((c2&c9)^(c5&c7)))));
-			A.setBit(6,e|(c0^c1^c3^c4^c7^(c0&c1&c2&c4&c9)^(c0&((c1&c4)^(c3&c8))&c5&c7)^
+			A.setBit(6,(c0^c1^c3^c4^c7^(c0&c1&c2&c4&c9)^(c0&((c1&c4)^(c3&c8))&c5&c7)^
 					((((((c0^c1)&c5)^(c0&c4))&c2)^(c1&(c2^c7)&c4))&c6&c8)));
-			A.setBit(7,e|(c2^c3^c4^(c0&((c2&c3)^((c2^c3)&c7))&c4&c8)^
+			A.setBit(7,(c2^c3^c4^(c0&((c2&c3)^((c2^c3)&c7))&c4&c8)^
 					((((c0^c1)&c3&c5)^(((c0^c1)& (c4^c5))&c6))&c7&c8)));
+		}else {
+			A = new DecaByte(255);
 		}
 
 		int val = 0;
-		for (int i = DecaByte.SIZE-1; i >= 0; i--) { /// original i=7 change to i=9 not change anything
+		for (int i = 7; i >= 0; i--) {
 			val = val << 1;
 			if (A.getBit(i)) val |= 1;
 		}
 
 		h.M[val]=1;
 		h.indexs.add(val);
-		h.e.add(e);
+		h.e.add(!((C.bitCount()==5))&((I.bitCount()==1)));
 
 		return val;
 	}

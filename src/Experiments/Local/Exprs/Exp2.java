@@ -1,23 +1,24 @@
-package Experiments.Local;
+package Experiments.Local.Exprs;
 
+import Experiments.Local.DecaByte;
+import Experiments.Local.v1.EditProgramV1.Helper;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static Experiments.Local.v3.EditProgramV3.*;
+import static Experiments.Local.v1.EditProgramV1.solMain;
 
-public class Exp2_2gil {
+public class Exp2 {
 
 	// notes:
 
 	// conclusion:
 
 
-
 	public static void main(String[] args) {
 
-		List<String> collect = Stream.of(2,4,8,16,32,64,128,256,256)
+		List<String> collect = Stream.of(15,16)
 				.map(j -> DecaByte.toBin(j, DecaByte.SIZE)).collect(Collectors.toList());
 		Helper h = solMain(collect);
 		System.out.printf("%s \t=>\t %s\t%s\n", collect.toString(), h.indexs, h.e.toString() );

@@ -16,14 +16,14 @@ public class BaseProgram {
 //				.map(b -> b ? "1" : "0").collect(Collectors.joining(""));
 //	}
 
-	static class Helper {
+	public static class Helper {
 		public ArrayList<Integer> indexs = new ArrayList<>();
-		boolean[] B = new boolean[50];
-		char[] M = new char[256];
-		int last = -1;
+		public boolean[] B = new boolean[50];
+		public char[] M = new char[256];
+		public int last = -1;
 		public int c = 0;
-		int res = -111;
-		Boolean e=null;
+		public int res = -111;
+		public Boolean e=null;
 	}
 
 	public static Helper solMain(List<String> inp) {

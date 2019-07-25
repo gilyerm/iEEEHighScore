@@ -104,4 +104,51 @@ public class DecaByte {
         }
         return decaByte;
     }
+
+
+    public void shiftL(int num){
+        for (int i = 0; i < num; i++) {
+            for (int j = 0; j < SIZE-1; j++) {
+                deca[j]=deca[j+1];
+            }
+            deca[SIZE-1]=false;
+        }
+    }
+
+    public void shiftR(int num){
+        for (int i = 0; i < num; i++) {
+            for (int j = SIZE-1; j > 0; j--) {
+                deca[j]=deca[j-1];
+            }
+            deca[0]=false;
+        }
+    }
+
+    public void shiftLCirc(int num){
+        for (int i = 0; i < num; i++) {
+            boolean tmp = deca[0];
+            for (int j = 0; j < SIZE-1; j++) {
+                deca[j]=deca[j+1];
+            }
+            deca[SIZE-1]=tmp;
+        }
+    }
+
+    public void shiftRCirc(int num){
+        for (int i = 0; i < num; i++) {
+            boolean tmp = deca[SIZE-1];
+            for (int j = SIZE-1; j > 0; j--) {
+                deca[j]=deca[j-1];
+            }
+            deca[0]=tmp;
+        }
+    }
+
+    public void swapBits(int i,int j){
+        System.out.print(this.toStringAsBin());
+        boolean tmp = getBit(i);
+        setBit(i,getBit(j));
+        setBit(j,tmp);
+        System.out.println("\t"+i+","+j+"\t"+this.toStringAsBin());
+    }
 }
