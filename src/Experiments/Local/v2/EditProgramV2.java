@@ -1,11 +1,13 @@
-package Experiments.Local.v1;
+package Experiments.Local.v2;
 
 import Experiments.Local.BufferQueue;
 import Experiments.Local.DecaByte;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class EditProgramV1 {
+public class EditProgramV2 {
 
 	public static class Helper {
 		public ArrayList<Integer> indexs = new ArrayList<>();
@@ -41,7 +43,7 @@ public class EditProgramV1 {
 		return retVal;
 	}
 
-	public static int f(DecaByte I,Helper h) {
+	public static int f(DecaByte I, Helper h) {
 		DecaByte A=new DecaByte();
 		BufferQueue<DecaByte> B = h.B;
 		DecaByte C=new DecaByte();
@@ -68,7 +70,6 @@ public class EditProgramV1 {
 		for (int i = 0; i < B.getMaxSize(); i++) {
 			C = DecaByte.OR(C,B.cell(i));
 		}
-
 		ArrayList<DecaByte> CList = new ArrayList<>();
 		final int offset=1;
 		{

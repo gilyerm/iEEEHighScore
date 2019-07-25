@@ -36,8 +36,8 @@ public class Exp8 {
 				.map(k -> toBin(k, 10)).collect(Collectors.toList());
 
 		collect.forEach(x -> System.out.println("\""+x+"\","));
-
-		System.out.println(solMain(collect));
+		Helper helper = solMain(collect);
+		System.out.println(helper.indexs.stream().distinct().count());
 
 
 	}

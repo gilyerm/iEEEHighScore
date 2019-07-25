@@ -1,9 +1,11 @@
-package Experiments.Local.v1;
+package Experiments.Local;
 
 import com.sun.istack.internal.NotNull;
 
 import java.util.Arrays;
-import java.util.stream.*;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class DecaByte {
     public static final int SIZE=10;
@@ -88,14 +90,14 @@ public class DecaByte {
     }
 
 
-    public static DecaByte OR(DecaByte o1,DecaByte o2){
+    public static DecaByte OR(DecaByte o1, DecaByte o2){
         DecaByte decaByte=new DecaByte();
         for (int j = 0; j < DecaByte.SIZE; j++) {
             decaByte.setBit(j,o1.getBit(j)|o2.getBit(j));
         }
         return decaByte;
     }
-    public static DecaByte AND(DecaByte o1,DecaByte o2){
+    public static DecaByte AND(DecaByte o1, DecaByte o2){
         DecaByte decaByte=new DecaByte();
         for (int j = 0; j < DecaByte.SIZE; j++) {
             decaByte.setBit(j,o1.getBit(j)&o2.getBit(j));

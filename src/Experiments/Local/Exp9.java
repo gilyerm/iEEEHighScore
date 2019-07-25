@@ -107,9 +107,9 @@ public class Exp9 {
 															   List<int[]> path,
 															   int N) {
 				// if all the vertices are visited, then
-				// hamiltonian path exists
+				// hamiltonian Path exists
 				if (path.size() == N) {
-					// print hamiltonian path
+					// print hamiltonian Path
 					for (int[] i : path)
 						System.out.print(Arrays.toString(i) + " ");
 					System.out.println();
@@ -121,12 +121,12 @@ public class Exp9 {
 				// to a solution or not
 				for (int[] w : g.adjList.get(v)) {
 					// process only unvisited vertices as hamiltonian
-					// path visits each vertex exactly once
+					// Path visits each vertex exactly once
 					if (!visited.getOrDefault(w, false)) {
 						visited.put(w, true);
 						path.add(w);
 
-						// check if adding vertex w to the path leads
+						// check if adding vertex w to the Path leads
 						// to solution or not
 						List<int[]> integers = printAllHamiltonianPaths(g, w, visited, path, N);
 						if (integers != null) return integers;
@@ -155,16 +155,16 @@ public class Exp9 {
 //				// starting node
 //				int[] start = g.adjList.keySet().stream().findFirst().get();
 //
-//				// add starting node to the path
-//				List<int[]> path = new ArrayList<>();
-//				path.add(start);
+//				// add starting node to the Path
+//				List<int[]> Path = new ArrayList<>();
+//				Path.add(start);
 //
 //				// mark start node as visited
 //				Map<int[], Boolean> visited = new ConcurrentHashMap<>();
 ////        boolean[] visited = new boolean[N];
 //				visited.put(start, true);
 //
-//				List<int[]> integers = printAllHamiltonianPaths(g, start, visited, path, N);
+//				List<int[]> integers = printAllHamiltonianPaths(g, start, visited, Path, N);
 //				System.out.println(integers);
 //				System.out.println(integers);
 //			}
@@ -186,7 +186,7 @@ public class Exp9 {
 				// starting node
 				int[] start = g.adjList.keySet().stream().findFirst().get();
 
-				// add starting node to the path
+				// add starting node to the Path
 				List<int[]> path = new ArrayList<>();
 				path.add(start);
 

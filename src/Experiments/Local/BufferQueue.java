@@ -1,6 +1,7 @@
-package Experiments.Local.v1;
+package Experiments.Local;
 
-import com.sun.istack.internal.*;
+import com.sun.istack.internal.NotNull;
+import com.sun.istack.internal.Nullable;
 
 import java.util.LinkedList;
 
@@ -9,7 +10,7 @@ public class BufferQueue<T> {
     private final LinkedList<T> linkedList;
     private final int maxSize;
 
-    public BufferQueue(@NotNull final int maxSize,@Nullable final T defualt) {
+    public BufferQueue(@NotNull final int maxSize, @Nullable final T defualt) {
         this.maxSize=maxSize;
         this.linkedList=new LinkedList<>();
         for (int i = 0; i < maxSize; i++) {

@@ -1,11 +1,13 @@
-package Experiments.Local.v1;
+package Experiments.Local.v3;
 
 import Experiments.Local.BufferQueue;
 import Experiments.Local.DecaByte;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class EditProgramV1 {
+public class EditProgramV3 {
 
 	public static class Helper {
 		public ArrayList<Integer> indexs = new ArrayList<>();
@@ -41,7 +43,7 @@ public class EditProgramV1 {
 		return retVal;
 	}
 
-	public static int f(DecaByte I,Helper h) {
+	public static int f(DecaByte I, Helper h) {
 		DecaByte A=new DecaByte();
 		BufferQueue<DecaByte> B = h.B;
 		DecaByte C=new DecaByte();
@@ -51,52 +53,55 @@ public class EditProgramV1 {
 
 		B.push(I);
 
-		X.setBit(0,I.getBit(0));
-		for (int i = 1; i < DecaByte.SIZE; i++) {
-			X.setBit(i,X.getBit(i-1)|I.getBit(i));
-		}
-
-		Y.setBit(0,!X.getBit(9));
-		for (int i = 1; i < DecaByte.SIZE; i++) {
-			Y.setBit(i,
-					Y.getBit(i-1)|(
-							X.getBit(i-1)&I.getBit(i)
-							));
-		}
+//		{
+//			X.setBit(0, I.getBit(0));
+//			for (int i = 1; i < DecaByte.SIZE; i++) {
+//				X.setBit(i, X.getBit(i - 1) | I.getBit(i));
+//			}
+//
+//			Y.setBit(0, !X.getBit(9));
+//			for (int i = 1; i < DecaByte.SIZE; i++) {
+//				Y.setBit(i,
+//						Y.getBit(i - 1) | (
+//								X.getBit(i - 1) & I.getBit(i)
+//						));
+//			}
+//		}
+//		Y.setBit(9,I.bitCount()!=1);
 
 		/// C = init "0"
 		for (int i = 0; i < B.getMaxSize(); i++) {
 			C = DecaByte.OR(C,B.cell(i));
 		}
-
 		ArrayList<DecaByte> CList = new ArrayList<>();
-		final int offset=1;
-		{
-			CList.add(0, null);
-			for (int i = 1; i <= 9; i++) {
-				CList.add(i, new DecaByte());
-			}
+//		final int offset=1;
+//		{
+//			CList.add(0, null);
+//			for (int i = 1; i <= 9; i++) {
+//				CList.add(i, new DecaByte());
+//			}
+//
+//			DecaByte C10 = CList.get(1);
+//			C10.setBit(0+offset,   !(C.getBit(0) | C.getBit(1)));
+//			C10.setBit(1+offset, C.getBit(0) ^ C.getBit(1));
+//			C10.setBit(2+offset, C.getBit(0) & C.getBit(1));
+//
+//			for (int i = 2; i < CList.size(); i++) {  // for C20-C90
+//				DecaByte prevC = CList.get(i - 1);
+//				DecaByte curC = CList.get(i);
+//				boolean curCDigit = C.getBit(i);
+//
+//				// code makes 2 changes: use of decabyte and
+//				// assuming "non existent" indexs to be FLASE!
+//				// also, made all shift over by 1 (20-23 => 21-24), so no need for IFs!
+//				for (int j = offset; j < DecaByte.SIZE; j++) {
+//					curC.setBit(j, (prevC.getBit(j - 1) & curCDigit) | (prevC.getBit(j) & (!curCDigit)));
+//				}
+//			}
+//		}
 
-			DecaByte C10 = CList.get(1);
-			C10.setBit(0+offset,   !(C.getBit(0) | C.getBit(1)));
-			C10.setBit(1+offset, C.getBit(0) ^ C.getBit(1));
-			C10.setBit(2+offset, C.getBit(0) & C.getBit(1));
-
-			for (int i = 2; i < CList.size(); i++) {  // for C20-C90
-				DecaByte prevC = CList.get(i - 1);
-				DecaByte curC = CList.get(i);
-				boolean curCDigit = C.getBit(i);
-
-				// code makes 2 changes: use of decabyte and
-				// assuming "non existent" indexs to be FLASE!
-				// also, made all shift over by 1 (20-23 => 21-24), so no need for IFs!
-				for (int j = offset; j < DecaByte.SIZE; j++) {
-					curC.setBit(j, (prevC.getBit(j - 1) & curCDigit) | (prevC.getBit(j) & (!curCDigit)));
-				}
-			}
-		}
-
-		boolean e=(!CList.get(9).getBit(5+offset))|Y.getBit(9);
+		boolean e=((C.bitCount()!=5))|(I.bitCount()!=1);
+//		boolean e=(!CList.get(9).getBit(5+offset))|Y.getBit(9);
 
 		boolean c0=C.getBit(0),
 				c1=C.getBit(1),

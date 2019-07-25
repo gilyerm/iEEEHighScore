@@ -8,7 +8,6 @@ import java.util.stream.Stream;
 import static Experiments.Local.PrevResults.working2len.first2Diff;
 import static Experiments.Local.v1.EditProgramV1.*;
 
-import Experiments.Local.v1.DecaByte;
 import Experiments.Local.v1.EditProgramV1.Helper;
 
 public class Exp4_2 {

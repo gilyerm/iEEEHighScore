@@ -156,13 +156,13 @@
 //			}
 //		}
 //
-//		List<int[]> path = run(flat);
+//		List<int[]> Path = run(flat);
 //
 //		ArrayList<Integer> delim2_0s = new ArrayList<>();
-//		int[] cur = path.get(0);
+//		int[] cur = Path.get(0);
 //		delim2_0s.addAll(Arrays.asList(cur[0],cur[1]));
-//		for (int i=1; i<path.size(); i++) {
-//			cur = path.get(i);
+//		for (int i=1; i<Path.size(); i++) {
+//			cur = Path.get(i);
 //			delim2_0s.addAll(Arrays.asList(0,0));
 //			delim2_0s.addAll(Arrays.asList(cur[0],cur[1]));
 //		}
