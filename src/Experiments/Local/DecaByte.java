@@ -23,7 +23,7 @@ public class DecaByte {
 
     public DecaByte(@NotNull final Integer num) {
         deca=new boolean[SIZE];
-        String s = toBin(num, SIZE);
+        final String s = toBin(num, SIZE);
         for (int j = 0; j < SIZE; j++) {
             deca[j] = (s.charAt(j) & 1) != 0;
         }
@@ -61,15 +61,15 @@ public class DecaByte {
 	}
 
     public static String toBin(@NotNull final int i,@NotNull final int len) {
-        String s = Integer.toBinaryString(i);
+        final String s = Integer.toBinaryString(i);
         return Stream.generate(() -> "0").limit(len-s.length()).collect(Collectors.joining("")) + s;
     }
 
     public int bitCount(){
-        return Integer.bitCount(asInt(deca));
+        return DecaByte.BitCount(this);
     }
 
-    private static int asInt(boolean[] deca) {
+    private static int asInt(final boolean[] deca) {
         return Integer.parseInt(arrAsBin(deca), 2);
     }
 
@@ -78,7 +78,7 @@ public class DecaByte {
         if (this == o) return true;
         if (!(o instanceof DecaByte)) return false;
 
-        DecaByte decaByte = (DecaByte) o;
+        final DecaByte decaByte = (DecaByte) o;
 
         return Arrays.equals(deca, decaByte.deca);
 
@@ -90,14 +90,14 @@ public class DecaByte {
     }
 
 
-    public static DecaByte OR(DecaByte o1, DecaByte o2){
+    public static DecaByte OR(@NotNull final DecaByte o1,@NotNull final DecaByte o2){
         DecaByte decaByte=new DecaByte();
         for (int j = 0; j < DecaByte.SIZE; j++) {
             decaByte.setBit(j,o1.getBit(j)|o2.getBit(j));
         }
         return decaByte;
     }
-    public static DecaByte AND(DecaByte o1, DecaByte o2){
+    public static DecaByte AND(@NotNull final DecaByte o1,@NotNull final DecaByte o2){
         DecaByte decaByte=new DecaByte();
         for (int j = 0; j < DecaByte.SIZE; j++) {
             decaByte.setBit(j,o1.getBit(j)&o2.getBit(j));
@@ -105,8 +105,19 @@ public class DecaByte {
         return decaByte;
     }
 
+    public static DecaByte XOR(@NotNull final DecaByte o1,@NotNull final DecaByte o2){
+        DecaByte decaByte=new DecaByte();
+        for (int j = 0; j < DecaByte.SIZE; j++) {
+            decaByte.setBit(j,o1.getBit(j)^o2.getBit(j));
+        }
+        return decaByte;
+    }
 
-    public void shiftL(int num){
+    public static int BitCount(@NotNull final DecaByte decaByte){
+        return Integer.bitCount(asInt(decaByte.deca));
+    }
+
+    public void shiftL(@NotNull final int num){
         for (int i = 0; i < num; i++) {
             for (int j = 0; j < SIZE-1; j++) {
                 deca[j]=deca[j+1];
@@ -115,7 +126,7 @@ public class DecaByte {
         }
     }
 
-    public void shiftR(int num){
+    public void shiftR(@NotNull final int num){
         for (int i = 0; i < num; i++) {
             for (int j = SIZE-1; j > 0; j--) {
                 deca[j]=deca[j-1];
@@ -124,9 +135,9 @@ public class DecaByte {
         }
     }
 
-    public void shiftLCirc(int num){
+    public void shiftLCirc(@NotNull final int num){
         for (int i = 0; i < num; i++) {
-            boolean tmp = deca[0];
+            final boolean tmp = deca[0];
             for (int j = 0; j < SIZE-1; j++) {
                 deca[j]=deca[j+1];
             }
@@ -134,9 +145,9 @@ public class DecaByte {
         }
     }
 
-    public void shiftRCirc(int num){
+    public void shiftRCirc(@NotNull final int num){
         for (int i = 0; i < num; i++) {
-            boolean tmp = deca[SIZE-1];
+            final boolean tmp = deca[SIZE-1];
             for (int j = SIZE-1; j > 0; j--) {
                 deca[j]=deca[j-1];
             }
@@ -144,9 +155,9 @@ public class DecaByte {
         }
     }
 
-    public void swapBits(int i,int j){
+    public void swapBits(@NotNull final int i,@NotNull final int j){
 //        System.out.print(this.toStringAsBin());
-        boolean tmp = getBit(i);
+        final boolean tmp = getBit(i);
         setBit(i,getBit(j));
         setBit(j,tmp);
 //        System.out.println("\t"+i+","+j+"\t"+this.toStringAsBin());
