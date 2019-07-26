@@ -2,14 +2,14 @@ package Experiments.Local.Exprs;
 
 import Experiments.Local.DecaByte;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class Exp12_1 {
+public class Exp12_2_split {
     private static int circ=0;
 
     public static void main(String[] args) {
@@ -27,25 +27,26 @@ public class Exp12_1 {
         sep_0_0_0_0(stringsList.get(i++));
 
 //        System.out.println(strings.size());
-        System.out.println();
-        System.out.println();
-        stringsList.forEach(s-> System.out.println(s.size()+"\t"+s));
-        System.out.println();
-        System.out.println(stringsList.stream().map(HashSet::size).mapToInt(n->n).sum());
 
-        System.out.println();
-        stringsList.forEach(s-> {
-                    List<Integer> l = s.stream().map(b -> Integer.parseInt(b, 2)).collect(Collectors.toList());
-                    System.out.println(l.size()+"\t"+l);
-                }
-        );
-
-
-        HashSet<String> allstrings = new HashSet<>();
-        stringsList.forEach(s->allstrings.addAll(s));
-        System.out.println();
-        System.out.println(allstrings.size()+"\t"+allstrings);
-        System.out.println(circ);
+//        System.out.println();
+//        System.out.println();
+//        stringsList.forEach(s-> System.out.println(s.size()+"\t"+s));
+//        System.out.println();
+//        System.out.println(stringsList.stream().map(HashSet::size).mapToInt(n->n).sum());
+//
+//        System.out.println();
+//        stringsList.forEach(s-> {
+//                    List<Integer> l = s.stream().map(b -> Integer.parseInt(b, 2)).collect(Collectors.toList());
+//                    System.out.println(l.size()+"\t"+l);
+//                }
+//        );
+//
+//
+//        HashSet<String> allstrings = new HashSet<>();
+//        stringsList.forEach(s->allstrings.addAll(s));
+//        System.out.println();
+//        System.out.println(allstrings.size()+"\t"+allstrings);
+//        System.out.println(circ);
 
     }
 
