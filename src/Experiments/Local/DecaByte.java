@@ -145,10 +145,10 @@ public class DecaByte {
     }
 
     public void swapBits(int i,int j){
-        System.out.print(this.toStringAsBin());
+//        System.out.print(this.toStringAsBin());
         boolean tmp = getBit(i);
         setBit(i,getBit(j));
         setBit(j,tmp);
-        System.out.println("\t"+i+","+j+"\t"+this.toStringAsBin());
+//        System.out.println("\t"+i+","+j+"\t"+this.toStringAsBin());
     }
 }
