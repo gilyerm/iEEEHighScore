@@ -11,12 +11,14 @@ public class EditProgramV3 {
 
 	public static class Helper {
 		public ArrayList<Integer> indexs = new ArrayList<>();
-		BufferQueue<DecaByte> B = new BufferQueue<>(5,new DecaByte());
-		char[] M = new char[256];
-		int last = -1;
+		public BufferQueue<DecaByte> B = new BufferQueue<>(5,new DecaByte());
+		public char[] M = new char[256];
+		public int last = -1;
 		public int c = 0;
-		int res = -111;
+		public int res = -111;
 		public ArrayList<Boolean> e=new ArrayList<>();
+		public ArrayList<DecaByte> Chistory = new ArrayList<>();
+
 	}
 
 	public static Helper solMain(List<String> inp) {
@@ -53,6 +55,7 @@ public class EditProgramV3 {
 		for (int i = 0; i < B.getMaxSize(); i++) {
 			C = DecaByte.OR(C,B.cell(i));
 		}
+		h.Chistory.add(C);
 
 		boolean c0=C.getBit(0),
 				c1=C.getBit(1),
