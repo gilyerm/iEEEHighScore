@@ -1,11 +1,16 @@
 package Experiments.Local.Exprs;
 
+import Experiments.Local.BaseProgram;
 import Experiments.Local.DecaByte;
+import Experiments.Local.v1.EditProgramV1;
+import Experiments.Local.v2.EditProgramV2;
 import Experiments.Local.v3.EditProgramV3;
 
 import java.util.*;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static Experiments.Local.BaseProgram.toBin;
@@ -53,6 +58,13 @@ public class Exp12_1 {
 
         ArrayList<Integer> numslist = new ArrayList<>(nums);
         ArrayList<Integer> allInputs = makeAll_Inputs(numslist);
+
+//        System.out.println("String[] inputs = {");
+//        allInputs.stream().map(DecaByte::new)
+//                .map(DecaByte::toStringAsBin)
+//                .map(b -> String.format("\t\"%s\",",b))
+//                .forEach(System.out::println);
+//        System.out.println("};");
 
         System.out.println();
         System.out.println(circ);
@@ -107,16 +119,46 @@ public class Exp12_1 {
 
 
         List<String> collect = allInputs.stream().map(k -> toBin(k, 10)).collect(Collectors.toList());
-        EditProgramV3.Helper h = solMain(collect);
-        System.out.println(h.res);
-        System.out.println(h.Chistory.stream().distinct().collect(Collectors.toList()));
-        List<DecaByte> repeatedCs = new ArrayList<>(h.Chistory).stream()
-                .filter(d -> {
-                    return h.Chistory.stream().filter(x -> x.equals(d)).count() != 1;
-                })
-                .distinct()
-                .collect(Collectors.toList());
-        System.out.println(repeatedCs);
+        EditProgramV3.Helper h = EditProgramV3.solMain(collect);
+        System.err.println("solMainRES:::::");
+        System.err.println(h.res);
+        List<Integer> reached = h.Chistory.stream().map(DecaByte::toString).mapToInt(Integer::parseInt)
+                .distinct().sorted().boxed().collect(Collectors.toList());
+        List<Integer> all5bc = IntStream.range(0, 1024).filter(i -> Integer.bitCount(i) == 5).boxed().collect(Collectors.toList());
+//        System.err.println("all5bc="+all5bc);
+        List<Integer> missed = new ArrayList<>();
+        all5bc.stream().filter(i -> !reached.contains(i)).sorted()
+                .peek(missed::add).collect(Collectors.toList());
+        System.err.println(missed);
+        System.err.println(numslist);
+        System.err.println();
+//        System.out.println(h.Chistory.stream().distinct().collect(Collectors.toList()));
+//        List<DecaByte> repeatedCs = new ArrayList<>(h.Chistory).stream()
+//                .filter(d -> {
+//                    return h.Chistory.stream().filter(x -> x.equals(d)).count() != 1;
+//                })
+//                .distinct()
+//                .collect(Collectors.toList());
+//        System.out.println(repeatedCs);
+
+        ArrayList<String> collectRevised = new ArrayList<>(collect);
+//        missed.stream().map(i->listOfOtherInputs(i,0).stream()
+//                .map(j->toBin(j,10)).collect(Collectors.toList()))
+//            .forEach(collectRevised::addAll);
+        Arrays.asList(2,1,4,32,16,8,128,256,512)
+                .stream()
+                .map(j->toBin(j,10)).collect(Collectors.toList())
+            .forEach(collectRevised::add);
+
+        BaseProgram.Helper hr = BaseProgram.solMain(collectRevised);
+        System.err.println("solMainRES_REV:::::");
+        System.err.println(hr.res);
+
+        System.out.println("String[] inputs = {");
+        collectRevised.stream()
+                .map(b -> String.format("\t\"%s\",",b))
+                .forEach(System.out::println);
+        System.out.println("};");
 
 //    public static void main(String[] args) {
 //
