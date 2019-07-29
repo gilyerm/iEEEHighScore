@@ -88,7 +88,7 @@ public class EditProgramV3 {
 			A.setBit(7,(c2^c3^c4^(c0&((c2&c3)^((c2^c3)&c7))&c4&c8)^
 					((((c0^c1)&c3&c5)^(((c0^c1)& (c4^c5))&c6))&c7&c8)));
 		}else {
-			A = new DecaByte(255);
+			A = new DecaByte(255<<2);
 		}
 
 		int val = 0;

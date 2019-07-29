@@ -15,7 +15,7 @@ public class EditProgramV2 {
 		char[] M = new char[256];
 		int last = -1;
 		public int c = 0;
-		int res = -111;
+		public int res = -111;
 		public ArrayList<Boolean> e=new ArrayList<>();
 	}
 

@@ -3,6 +3,7 @@ package Experiments.Local;
 import com.sun.istack.internal.NotNull;
 
 import java.util.Arrays;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -77,43 +78,31 @@ public class DecaByte {
     }
 
 
-    @Override
-    public boolean equals(Object o) {
+    @Override public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof DecaByte)) return false;
-
         final DecaByte decaByte = (DecaByte) o;
-
         return Arrays.equals(deca, decaByte.deca);
-
     }
-
-    @Override
-    public int hashCode() {
+    @Override public int hashCode() {
         return Arrays.hashCode(deca);
     }
 
-
     public static DecaByte OR(@NotNull final DecaByte o1,@NotNull final DecaByte o2){
-        DecaByte decaByte=new DecaByte();
-        for (int j = 0; j < DecaByte.SIZE; j++) {
-            decaByte.setBit(j,o1.getBit(j)|o2.getBit(j));
-        }
-        return decaByte;
+        return BitwiseOperation(o1,o2,(b1,b2) -> b1|b2);
     }
     public static DecaByte AND(@NotNull final DecaByte o1,@NotNull final DecaByte o2){
-        DecaByte decaByte=new DecaByte();
-        for (int j = 0; j < DecaByte.SIZE; j++) {
-            decaByte.setBit(j,o1.getBit(j)&o2.getBit(j));
-        }
-        return decaByte;
+        return BitwiseOperation(o1,o2,(b1,b2) -> b1&b2);
     }
-
     public static DecaByte XOR(@NotNull final DecaByte o1,@NotNull final DecaByte o2){
+        return BitwiseOperation(o1,o2,(b1,b2) -> b1^b2);
+    }
+    public static DecaByte BitwiseOperation(
+            @NotNull final DecaByte o1, @NotNull final DecaByte o2,
+            BiFunction<Boolean, Boolean, Boolean> opr) {
         DecaByte decaByte=new DecaByte();
-        for (int j = 0; j < DecaByte.SIZE; j++) {
-            decaByte.setBit(j,o1.getBit(j)^o2.getBit(j));
-        }
+        for (int j = 0; j < DecaByte.SIZE; j++)
+            decaByte.setBit(j, opr.apply(o1.getBit(j), o2.getBit(j)));
         return decaByte;
     }
 
@@ -129,7 +118,6 @@ public class DecaByte {
             deca[SIZE-1]=false;
         }
     }
-
     public void shiftR(@NotNull final int num){
         for (int i = 0; i < num; i++) {
             for (int j = SIZE-1; j > 0; j--) {
@@ -148,13 +136,11 @@ public class DecaByte {
             deca[SIZE-1]=tmp;
         }
     }
-
     public void shiftRCirc(@NotNull final int num){
         for (int i = 0; i < num; i++) {
             final boolean tmp = deca[SIZE-1];
-            for (int j = SIZE-1; j > 0; j--) {
+            for (int j = SIZE-1; j > 0; j--)
                 deca[j]=deca[j-1];
-            }
             deca[0]=tmp;
         }
     }

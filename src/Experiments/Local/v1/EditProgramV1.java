@@ -9,11 +9,11 @@ public class EditProgramV1 {
 
 	public static class Helper {
 		public ArrayList<Integer> indexs = new ArrayList<>();
-		BufferQueue<DecaByte> B = new BufferQueue<>(5,new DecaByte());
-		char[] M = new char[256];
-		int last = -1;
+		public BufferQueue<DecaByte> B = new BufferQueue<>(5,new DecaByte());
+		public char[] M = new char[256];
+		public int last = -1;
 		public int c = 0;
-		int res = -111;
+		public int res = -111;
 		public ArrayList<Boolean> e=new ArrayList<>();
 	}
 
