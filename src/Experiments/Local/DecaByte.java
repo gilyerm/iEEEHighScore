@@ -72,6 +72,10 @@ public class DecaByte {
     private static int asInt(final boolean[] deca) {
         return Integer.parseInt(arrAsBin(deca), 2);
     }
+    public int asInt() {
+        return Integer.parseInt(arrAsBin(deca), 2);
+    }
+
 
     @Override
     public boolean equals(Object o) {
