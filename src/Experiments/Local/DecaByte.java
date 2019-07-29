@@ -9,6 +9,18 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class DecaByte {
+
+    public static final DecaByte DECA_BYTE_1=new DecaByte(1);
+    public static final DecaByte DECA_BYTE_2=new DecaByte(2);
+    public static final DecaByte DECA_BYTE_4=new DecaByte(4);
+    public static final DecaByte DECA_BYTE_8=new DecaByte(8);
+    public static final DecaByte DECA_BYTE_16=new DecaByte(16);
+    public static final DecaByte DECA_BYTE_32=new DecaByte(32);
+    public static final DecaByte DECA_BYTE_64=new DecaByte(64);
+    public static final DecaByte DECA_BYTE_128=new DecaByte(128);
+    public static final DecaByte DECA_BYTE_256=new DecaByte(256);
+    public static final DecaByte DECA_BYTE_512=new DecaByte(512);
+
     public static final int SIZE=10;
 
     private final boolean[] deca;
@@ -28,6 +40,10 @@ public class DecaByte {
         for (int j = 0; j < SIZE; j++) {
             deca[j] = (s.charAt(j) & 1) != 0;
         }
+    }
+
+    public DecaByte(@NotNull final String bin) {
+        this(Integer.parseInt(bin,2));
     }
 
     public boolean[] getDeca() {

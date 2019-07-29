@@ -4,42 +4,29 @@ import Experiments.Local.DecaByte;
 import Experiments.Local.v3.DecaState;
 
 import java.util.*;
-import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class Exp12_2_split {
+public class Exp12_3 {
     private static int circ=0;
 
     public static void main(String[] args) {
-
-//        System.out.println(DecaByte.DECA_BYTE_512.toStringAsBin());
-
-        List<LinkedHashSet<String>> stringsList = Stream
-                .generate(() -> new LinkedHashSet<String>())
+        List<HashSet<String>> stringsList = Stream
+                .generate(() -> new HashSet<String>())
                 .limit(7).collect(Collectors.toList());
 //        Collection<String> strings=new HashSet<>();
         int i=0;
-        NoSep(stringsList.get(i++));
-        Sep_00(stringsList.get(i++));
-        sep_0_0(stringsList.get(i++));
-        sep_0__0(stringsList.get(i++));
-        sep_0_0_0(stringsList.get(i++));
-        sep_0_00(stringsList.get(i++));
-        sep_0_0_0_0(stringsList.get(i++));
+        Collection<String> gilsList = new LinkedHashSet<>();
+        SepGil_RR(gilsList);
+        System.out.println(gilsList.size()+" "+gilsList);
 
-        List<Integer> bc5 = IntStream.range(0, 1024).boxed()
-                .filter(n -> Integer.bitCount(n) == 5).collect(Collectors.toList());
-        LinkedHashSet<String> total = stringsList.stream().reduce(new LinkedHashSet<>(), (strings, strings2) -> {
-            LinkedHashSet<String> list = new LinkedHashSet<>();
-            list.addAll(strings);
-            list.addAll(strings2);
-            return list;
-        });
-        System.out.println(
-                total.stream().map(b->Integer.parseInt(b,2))
-                        .collect(Collectors.toList()).containsAll(bc5));
+//        NoSep(stringsList.get(i++));
+//        Sep_00(stringsList.get(i++));
+//        sep_0_0(stringsList.get(i++));
+//        sep_0__0(stringsList.get(i++));
+//        sep_0_0_0(stringsList.get(i++));
+//        sep_0_00(stringsList.get(i++));
+//        sep_0_0_0_0(stringsList.get(i++));
 
 //        System.out.println(strings.size());
 
@@ -65,49 +52,60 @@ public class Exp12_2_split {
 
     }
 
+    public static void SepGil_RR(Collection<String> strings) {
+        DecaState deca = new DecaState(31,"54321");
+        strings.add(deca.asDecaByte().toStringAsBin());
 
-    public static void NoSep(Collection<String> strings) {
+        int i = 4, j = i+5;
+        for (int p = 1; p <= 2; p++) {
+            for (int k=0; k<12; k++) {
+                deca = deca.nextIteration(i);
+                strings.add(deca.asDecaByte().toStringAsBin());
+                i= Math.floorMod(i-1,DecaByte.SIZE);
 
-        DecaState decaState = new DecaState(31, "54321");
-        System.out.println(decaState);
-        for (int i=4; i>0; i--) {
-            for (int j = 0; j < DecaByte.SIZE; j++) {
-                System.out.println(decaState);
-                decaState = decaState.nextIteration(i);
-                i = Math.floorMod(i-1, 10);
+                deca = deca.nextIteration(j);
+                strings.add(deca.asDecaByte().toStringAsBin());
+                j= Math.floorMod(j-1,DecaByte.SIZE);
             }
-//            i = Math.floorMod(i-1, 10);
+//            deca = deca.nextIteration(i);
+//            strings.add(deca.asDecaByte().toStringAsBin());
+            i= Math.floorMod(i-1,DecaByte.SIZE);
+
+            System.out.println("i="+i+"\tj="+j);
         }
 
+    }
+
+
+
+
+    public static void NoSep(Collection<String> strings) {
         DecaByte decaByte=new DecaByte(31);
-        LinkedHashSet<String> trace = new LinkedHashSet<>();
         for (int i = 4; i <= 8; i++) {
-            String b = decaByte.toStringAsBin();
-            strings.add(b);
-            trace.add(b);
+            strings.add(decaByte.toStringAsBin());
             for (int j = 0; j < DecaByte.SIZE; j++) {
                 decaByte.shiftLCirc(1); circ++;
-                b = decaByte.toStringAsBin();
-                strings.add(b);
-                trace.add(b);
+                strings.add(decaByte.toStringAsBin());
             }
             decaByte.swapBits(i,i+1);
         }
-        trace.forEach(b -> System.out.println(b+"\t"+Integer.parseInt(b,2)));
-        Iterator<String> itr = trace.iterator();
-        String first, next = itr.next();
-        do {
-            first = next; next = itr.next();
-            DecaByte decaFirst = new DecaByte(first),
-                     decaNext = new DecaByte(next);
-            if (DecaByte.XOR(decaFirst,decaNext).bitCount() != 2)
-                System.out.println("\n"+decaFirst.toStringAsBin()+"\n"+decaNext.toStringAsBin()+"\n");
-        } while (itr.hasNext());
-//        System.out.println(trace);
     }
 
 
     public static void Sep_00(Collection<String> strings) {
+
+//        Set<String> strings1=new HashSet<>();
+//
+//        List<DecaByte> collect = Arrays.asList(79, 103, 115, 121).parallelStream().map(DecaByte::new).collect(Collectors.toList());
+//        for (DecaByte decaByte : collect) {
+//            for (int i = 0; i < DecaByte.SIZE; i++) {
+//                strings1.add(decaByte.toStringAsBin());
+//                decaByte.shiftLCirc(1);
+//                strings1.add(decaByte.toStringAsBin());
+//            }
+//            System.out.println("----------");
+//        }
+
         DecaByte decaByte=new DecaByte(79);
 
         for (int k = 0; k < 2; k++) {
@@ -141,9 +139,9 @@ public class Exp12_2_split {
         DecaByte decaByte=new DecaByte(87);
         for (int k = 0; k < 2; k++) {
             for (int i = 0; i < DecaByte.SIZE; i++) {
-                //System.out.println("start= "+decaByte.toString());
+                System.out.println("start= "+decaByte.toString());
                 int stringRound = findStringRound(decaByte.toStringAsBin(), "0001")+3;
-                //System.out.println(stringRound);
+                System.out.println(stringRound);
                 int l=stringRound,r=l+6;
                 l%=DecaByte.SIZE;
                 r%=DecaByte.SIZE;
@@ -154,7 +152,7 @@ public class Exp12_2_split {
                     r=Math.floorMod(--r,DecaByte.SIZE);
                     strings.add(decaByte.toStringAsBin());
                 }
-                //System.out.println("--------------------------");
+                System.out.println("--------------------------");
                 for (int j = 0; j < 2; j++) {
                     decaByte.swapBits(r,(r+2)%DecaByte.SIZE);
                     strings.add(decaByte.toStringAsBin());
@@ -162,7 +160,7 @@ public class Exp12_2_split {
 
                 }
 
-                //System.out.println("end= "+decaByte.toString());
+                System.out.println("end= "+decaByte.toString());
             }
             decaByte.shiftLCirc(1); circ++;
         }
@@ -174,9 +172,9 @@ public class Exp12_2_split {
         DecaByte decaByte=new DecaByte(91);
         for (int k = 0; k < 1; k++) {
             for (int i = 0; i < DecaByte.SIZE; i++) {
-                //System.out.println("start= "+decaByte.toString());
+                System.out.println("start= "+decaByte.toString());
                 int stringRound = findStringRound(decaByte.toStringAsBin(), "0001")+3;
-                //System.out.println(stringRound);
+                System.out.println(stringRound);
                 int l=stringRound,r=l+6;
                 l%=DecaByte.SIZE;
                 r%=DecaByte.SIZE;
@@ -187,7 +185,7 @@ public class Exp12_2_split {
                     r=Math.floorMod(--r,DecaByte.SIZE);
                     strings.add(decaByte.toStringAsBin());
                 }
-                //System.out.println("--------------------------");
+                System.out.println("--------------------------");
                 for (int j = 0; j < 1; j++) {
                     decaByte.swapBits(r,(r+2)%DecaByte.SIZE);
                     strings.add(decaByte.toStringAsBin());
@@ -195,7 +193,7 @@ public class Exp12_2_split {
 
                 }
 
-                //System.out.println("end= "+decaByte.toString());
+                System.out.println("end= "+decaByte.toString());
             }
             decaByte.shiftLCirc(1); circ++;
         }
