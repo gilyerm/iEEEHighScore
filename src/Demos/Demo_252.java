@@ -304,14 +304,14 @@ public class Demo_252 {
     public static void main(String[] args) {
         EditProgramV3.Helper helper = EditProgramV3.solMain(Arrays.asList(arr));
 
-
-        System.out.println("missing:\t"+ IntStream.range(0, 1024).filter(value -> Integer.bitCount(value) == 5).boxed().map(integer -> DecaByte.toBin(integer,10)).map(DecaByte::new)
-                .filter(s -> !helper.Chistory.contains(s)).map(DecaByte::toStringAsBin).map(s -> s+"\n").collect(Collectors.toList()));
-
+//
+//        System.out.println("missing:\t"+ IntStream.range(0, 1024).filter(value -> Integer.bitCount(value) == 5).boxed().map(integer -> DecaByte.toBin(integer,10)).map(DecaByte::new)
+//                .filter(s -> !helper.Chistory.contains(s)).map(DecaByte::toStringAsBin).map(s -> s+"\n").collect(Collectors.toList()));
+//
 
 //        System.out.println(helper.Chistory.stream().distinct().sorted(Comparator.comparingInt(DecaByte::asInt)).collect(Collectors.toList()));
 
-
-        System.out.println(helper.indexs.stream().distinct().count()+"\t"+helper.res);
+        System.out.println("lines send:\t"+arr.length);
+        System.out.println("result:\t"+helper.res);
     }
 }
