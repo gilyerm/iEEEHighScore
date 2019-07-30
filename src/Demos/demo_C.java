@@ -3,6 +3,8 @@ package Demos;
 import Experiments.Local.DecaByte;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class demo_C {
 
@@ -24,6 +26,7 @@ public class demo_C {
 		System.out.println();
 		System.out.println("count of values above, for which bitCount!=5 :");
 		System.out.println(list.stream().filter(d -> d.bitCount() != 5).count());
+
 	}
 
 	public static boolean run_C(DecaByte C) {
@@ -54,4 +57,5 @@ public class demo_C {
 
 		return c95;
 	}
+
 }
