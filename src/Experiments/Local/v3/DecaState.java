@@ -1,9 +1,11 @@
 package Experiments.Local.v3;
 
 import Experiments.Local.DecaByte;
+import Experiments.Local.v2.GenerateGraph;
 import com.sun.istack.internal.NotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -32,6 +34,17 @@ public class DecaState {
         this.bin = bin;
         this.ttl = ttl;
         this.state = asState(bin,ttl);
+    }
+
+    public DecaState(String state) {
+
+        this.ttl = state.replaceAll("0","");
+        this.state = state;
+
+        this.bin = state.replaceAll("2", "1").replaceAll("3", "1")
+                        .replaceAll("4", "1").replaceAll("5", "1");
+        this.num = Integer.parseInt(bin,2);
+
     }
 
 
@@ -111,6 +124,38 @@ public class DecaState {
         return new DecaState(b,t);
     }
 
+    public ArrayList<DecaState> prevIterations() {
+        ArrayList<DecaState> list = new ArrayList<>();
+        int[] indexes = new int[5]; int i=0, newIdx=-1;
+        char[] chars = this.state.toCharArray();
+        for (int j = 0; j < chars.length; j++) {
+            if (chars[j] == '0') {
+                indexes[i++] = j;
+            }
+            else if (chars[j] == '5') {
+                newIdx = j;
+                chars[j] = '0';
+            }
+            else {
+                chars[j]++;
+            }
+        }
+        for (int j = 0; j < indexes.length; j++) {
+            int zIdx = indexes[j];
+            chars[zIdx] = '1';
+            String t = new String(chars).replaceAll("0","");
+            chars[zIdx] = '0';
+            char[] binChars = this.bin.toCharArray();
+            binChars[newIdx] = '0';
+            binChars[zIdx] = '1';
+            String b = new String(binChars);
+            list.add(new DecaState(b,t));
+        }
+//        System.out.println(list);
+        return list;
+    }
+
+
     public DecaByte asDecaByte() {
         return new DecaByte(this.num);
     }
@@ -148,6 +193,69 @@ public class DecaState {
         if (bin != null ? !bin.equals(decaState.bin) : decaState.bin != null) return false;
         if (ttl != null ? !ttl.equals(decaState.ttl) : decaState.ttl != null) return false;
         return state != null ? state.equals(decaState.state) : decaState.state == null;
+
+    }
+
+    private static ArrayList<String> allPerms =
+            Permutation.makeAllPermutationsOf("12345");
+    public static List<String> allPerms(){
+        return allPerms;
+    }
+
+    static private class Permutation
+    {
+        public static ArrayList<String> makeAllPermutationsOf(String str)
+        {
+//            String str = "12345";
+//            Permutation permutation = new Permutation();
+//            ArrayList<String> permute = permute(str, 0, str.length() - 1);
+//            System.out.println(permute);
+            return permute(str, 0, str.length() - 1);
+        }
+
+        /**
+         * permutation function
+         * @param str string to calculate permutation for
+         * @param l starting index
+         * @param r end index
+         */
+        private static ArrayList<String> permute(String str, int l, int r)
+        {
+            ArrayList<String> strings = new ArrayList<>();
+
+            if (l == r) {
+                strings.add(str);
+//                System.out.println(str);
+            }
+            else
+            {
+                for (int i = l; i <= r; i++)
+                {
+                    str = swap(str,l,i);
+                    ArrayList<String> permute = permute(str, l + 1, r);
+                    strings.addAll(permute);
+                    str = swap(str,l,i);
+                }
+            }
+            return strings;
+        }
+
+        /**
+         * Swap Characters at position
+         * @param a string value
+         * @param i position 1
+         * @param j position 2
+         * @return swapped string
+         */
+        public static String swap(String a, int i, int j)
+        {
+            char temp;
+            char[] charArray = a.toCharArray();
+            temp = charArray[i] ;
+            charArray[i] = charArray[j];
+            charArray[j] = temp;
+            return String.valueOf(charArray);
+        }
 
     }
 

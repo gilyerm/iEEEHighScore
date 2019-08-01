@@ -122,6 +122,17 @@ public class DecaByte {
         return decaByte;
     }
 
+    public DecaByte OR(@NotNull final DecaByte o){
+        return OR(this,o);
+    }
+    public DecaByte AND(@NotNull final DecaByte o){
+        return AND(this,o);
+    }
+    public DecaByte XOR(@NotNull final DecaByte o){
+        return XOR(this,o);
+    }
+
+
     public static int BitCount(@NotNull final DecaByte decaByte){
         return Integer.bitCount(asInt(decaByte.deca));
     }
