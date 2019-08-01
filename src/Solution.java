@@ -6,6 +6,7 @@ public class Solution {
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         String[] arr=new String[]{
+                "0000000010",
                 "0000000001",
                 "0000010000",
                 "0001000000",
@@ -284,15 +285,10 @@ public class Solution {
                 "0000000100",
                 "0000000010",
                 "0100000000",
-                "0000000001",
-                "0010000000",
-                "0001000000",
-                "0000010000",
-                "0000000010",
         };
         System.out.println(arr.length);
-        for(int i=0;i<arr.length;i++){
-            System.out.println(arr[i]);
+        for (String s : arr) {
+            System.out.println(s);
         }
     }
 }
