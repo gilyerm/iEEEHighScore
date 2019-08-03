@@ -74,3 +74,70 @@ testGoodSeq(Seq,Size) :-
     % Size is 5,
     anInputList(Seq,Size),
     isGoodSeq(Seq,[],Size).
+
+buildUp4(L1,L2,L3,L4) :-
+    powOf2(L1),
+    powOf2(L2),
+    L2 \= L1,
+    powOf2(L3),
+    L3 \= L2,
+    L3 \= L1,
+    powOf2(L4),
+    L4 \= L3,
+    L4 \= L2,
+    L4 \= L1.
+
+extendGoodSeq([L1,L2,L3,L4,L5|R],Cprevs,Count) :-
+    % print(bla),
+    Count > 4,
+    powOf2(L5), % printf('%s\n', L5),
+    %bitCount5([L5,L1,L2,L3,L4]),
+    not(contains(L5,[L1,L2,L3,L4])),
+    or5(L1,L2,L3,L4,L5, C),
+    not(contains(C,Cprevs)),
+    NextCount is Count-1,
+    extendGoodSeq([L2,L3,L4,L5|R], [C|Cprevs], NextCount).    
+
+extendGoodSeq(_,_,4).
+
+testExGoodSeq([L1,L2,L3,L4|R],Size) :-
+    Size >= 5,
+    buildUp4(L1,L2,L3,L4),
+    extendGoodSeq([L1,L2,L3,L4|R],[],Size).
+    % isGoodSeq(Seq,[],Size).
+
+% set_prolog_flag(answer_write_options,[max_depth(0)]).
+
+multiExGoodSeq([Start|R],Size,Start) :-
+    testExGoodSeq([Start|R],Size).
+
+runMain1(Seq,Size) :-
+    first_solution(Seq, [
+            multiExGoodSeq(Seq,Size,1), 
+            multiExGoodSeq(Seq,Size,2), 
+            multiExGoodSeq(Seq,Size,4), 
+            multiExGoodSeq(Seq,Size,8),
+            multiExGoodSeq(Seq,Size,16), 
+            multiExGoodSeq(Seq,Size,32), 
+            multiExGoodSeq(Seq,Size,64),
+            multiExGoodSeq(Seq,Size,128), 
+            multiExGoodSeq(Seq,Size,256), 
+            multiExGoodSeq(Seq,Size,512)
+        ],
+        []
+    ).
+
+multiExGoodSeq2([Start|R],Size,Starts) :-
+    contains(Start,Starts),
+    testExGoodSeq([Start|R],Size).
+
+runMain2(Seq,Size) :-
+    first_solution(Seq, [
+            multiExGoodSeq2(Seq,Size,[1,2]), 
+            multiExGoodSeq2(Seq,Size,[4,8]), 
+            multiExGoodSeq2(Seq,Size,[16,32]),
+            multiExGoodSeq2(Seq,Size,[64,128]),
+            multiExGoodSeq2(Seq,Size,[256,512])
+        ],
+        []
+    ).
