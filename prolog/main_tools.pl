@@ -1,4 +1,4 @@
-:- ensure_loaded("./prolog/basic_rules.pl").
+:- ensure_loaded("basic_rules.pl").
 % set_prolog_flag(answer_write_options,[max_depth(0)]).
 
 

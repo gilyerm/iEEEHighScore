@@ -1,4 +1,3 @@
-
 :- set_prolog_flag(answer_write_options,[max_depth(0)]).
 
 

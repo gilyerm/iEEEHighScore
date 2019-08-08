@@ -1,4 +1,4 @@
-:- ensure_loaded("./prolog/main_tools.pl").
+:- ensure_loaded("main_tools.pl").
 
 multiExGoodSeq([StartX|R],Size,StartX) :-
     testExGoodSeq([StartX|R],Size).

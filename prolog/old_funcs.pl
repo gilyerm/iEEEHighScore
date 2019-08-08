@@ -1,4 +1,4 @@
-:- ensure_loaded("./prolog/basic_rules.pl").
+:- ensure_loaded("basic_rules.pl").
 
 %%% ------ BASICS ------ %%%
 

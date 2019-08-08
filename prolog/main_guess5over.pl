@@ -1,5 +1,4 @@
-:- ensure_loaded("./prolog/main_tools.pl").
-
+:-  ensure_loaded("main_tools.pl").
 
 extendGuessBy(Guess,Depth,Prfxs):-
     last5(Guess,Five),
