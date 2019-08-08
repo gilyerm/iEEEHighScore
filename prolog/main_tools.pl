@@ -46,6 +46,7 @@ optionForNext5([_,L2,L3,L4,L5], Nexts, [L2,L3,L4,L5,P]) :-
 nextPossible1([L1,L2,L3,L4,L5], N) :-
     powOf2(N),
     not(contains(N,[L1,L2,L3,L4,L5])).
+
 nextPossible5([L1,L2,L3,L4,L5], [N1,N2,N3,N4,N5]) :-
     nextPossible1([L1,L2,L3,L4,L5], N1),
     nextPossible1([L1,L2,L3,L4,L5], N2),
@@ -62,3 +63,9 @@ recNextOptions([L1,L2,L3,L4,L5], [P|ResNexts], Depth) :-
     contains(P,Nexts),
     Depth1 is Depth-1,
     recNextOptions([L2,L3,L4,L5,P], ResNexts, Depth1).
+
+last5([X1,X2,X3,X4,X5],[X1,X2,X3,X4,X5]).
+last5([_|R],L):-
+    length([_|R], Size),
+    Size > 5,
+    last5(R,L).

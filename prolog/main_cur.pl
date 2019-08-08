@@ -10133,11 +10133,3 @@ runMain_N3_p5(Seq,Size) :-
             on_fail(continue)
         ]
     ).
-
-gen(_,_,[],[]).
-gen(Seq,Size,[X|R],[multiExGoodSeq(Seq,Size,X)|Rest]) :-
-    gen(Seq,Size,R,Rest).
-
-runrunmain(Seq,Size,Opt) :-
-    gen(Seq,Size,Opt,L),
-    first_solution(Seq,L,[on_fail(continue)]).
