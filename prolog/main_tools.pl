@@ -43,9 +43,9 @@ startSeqOption([X|R],Depth) :-
 optionForNext5([_,L2,L3,L4,L5], Nexts, [L2,L3,L4,L5,P]) :-
     contains(P,Nexts).
 
-nextPossible1([L1,L2,L3,L4,L5], N) :-
+nextPossible1(Lasts, N) :-
     powOf2(N),
-    not(contains(N,[L1,L2,L3,L4,L5])).
+    not(contains(N,Lasts)).
 
 nextPossible5([L1,L2,L3,L4,L5], [N1,N2,N3,N4,N5]) :-
     nextPossible1([L1,L2,L3,L4,L5], N1),
@@ -63,9 +63,23 @@ recNextOptions([L1,L2,L3,L4,L5], [P|ResNexts], Depth) :-
     contains(P,Nexts),
     Depth1 is Depth-1,
     recNextOptions([L2,L3,L4,L5,P], ResNexts, Depth1).
+recNextOptions(Lasts, [Next|ResNexts], Depth) :-
+    Depth > 0,
+    length(Lasts, LastsLen), LastsLen < 5,
+    nextPossible1(Lasts, Next),
+    Depth1 is Depth-1,
+    concatTo(LastsNext, Lasts, [Next]),
+    recNextOptions(LastsNext, ResNexts, Depth1).
 
-last5([X1,X2,X3,X4,X5],[X1,X2,X3,X4,X5]).
-last5([_|R],L):-
-    length([_|R], Size),
-    Size > 5,
-    last5(R,L).
+% last5([X1,X2,X3,X4,X5],[X1,X2,X3,X4,X5]).
+% last5([_|R],L):-
+%     length([_|R], Size),
+%     Size > 5,
+%     last5(R,L).
+
+tailOf([_|R],Tail,WantedLen) :-
+    length([_|R], Size), Size > WantedLen,
+    tailOf(R,Tail,WantedLen).
+tailOf(Tail,Tail,WantedLen) :-
+    length(Tail, Size), Size =< WantedLen.
+

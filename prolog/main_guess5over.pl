@@ -1,10 +1,10 @@
 :-  ensure_loaded("main_tools.pl").
 
 extendGuessBy(Guess,Depth,Prfxs):-
-    last5(Guess,Five),
+    tailOf(Guess,Tail,5),
     findall(Prf,
         (
-            recNextOptions(Five,Next,Depth),
+            recNextOptions(Tail,Next,Depth),
             concatTo(Prf,Guess,Next)
         ),
         Prfxs).
@@ -22,7 +22,7 @@ threadQuery_Guess5Over(Seq,Size,Prf) :-
     ).
 
 mainMulti_Guess5Over(Seq,Size,Guess,Depth):-
-    length(Guess,GLen), GLen > 4,
+    length(Guess,GLen), /* GLen > 4, */
     GLen + Depth =< Size,
     extendGuessBy(Guess,Depth,Prfxs),
     length(Seq,Size),
