@@ -25,6 +25,9 @@ extendGoodSeq([L1,L2,L3,L4,L5|R],Cprevs,Size) :-
     extendGoodSeq([L2,L3,L4,L5|R], [C|Cprevs], NextSize).    
 
 extendGoodSeq([_,_,_,_],_,4).
+% version for outputing C values when reaching SIZE
+% extendGoodSeq([_,_,_,_],Cprevs,4) :-
+%     print_message(informational, Cprevs).
 
 testExGoodSeq([L1,L2,L3,L4|R],Size) :-
     Size > 4,

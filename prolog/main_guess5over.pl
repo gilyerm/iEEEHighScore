@@ -5,7 +5,8 @@ extendGuessBy(Guess,Depth,Prfxs):-
     findall(Prf,
         (
             recNextOptions(Tail,Next,Depth),
-            concatTo(Prf,Guess,Next)
+            concatTo(Prf,Guess,Next),
+            isValidGuess(Guess)
         ),
         Prfxs).
 
@@ -30,15 +31,16 @@ mainMulti_Guess5Over(Seq,Size,Guess,Depth):-
     length(Guess,GLen), /* GLen > 4, */
     GLen + Depth =< Size,
     extendGuessBy(Guess,Depth,Prfxs),
-    include(isValidGuess(), Prfxs, GoodPrfxs),
+    % include(isValidGuess(), Prfxs, GoodPrfxs),
     length(Seq,Size),
-    genRunables_Guess5Over(Seq,Size,GoodPrfxs,Runnables),
+    % genRunables_Guess5Over(Seq,Size,GoodPrfxs,Runnables),
+    genRunables_Guess5Over(Seq,Size,Prfxs,Runnables),
     %% log
         % length(Prfxs,PrefxLen),print_message(informational, PrefxLen),
         % length(GoodPrfxs,GoodLen),print_message(informational, GoodLen),
         % length(Runnables,RnblLen),print_message(informational, RnblLen),
+        % !,fail,
     first_solution(Seq,Runnables,[on_fail(continue)]).
-
 
 myMain(Guess,Depth,Seq,Size) :-
     mainMulti_Guess5Over(Seq,Size,Guess,Depth).
