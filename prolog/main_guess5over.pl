@@ -21,17 +21,30 @@ threadQuery_Guess5Over(Seq,Size,Prf) :-
         testExGoodSeq(Seq,Size)
     ).
 
+isValidGuess(Guess) :-
+    is_list(Guess),
+    length(Guess,Len),
+    testExGoodSeq(Guess,Len).
+
 mainMulti_Guess5Over(Seq,Size,Guess,Depth):-
     length(Guess,GLen), /* GLen > 4, */
     GLen + Depth =< Size,
     extendGuessBy(Guess,Depth,Prfxs),
+    include(isValidGuess(), Prfxs, GoodPrfxs),
     length(Seq,Size),
-    genRunables_Guess5Over(Seq,Size,Prfxs,Runnables),
+    genRunables_Guess5Over(Seq,Size,GoodPrfxs,Runnables),
+    %% log
+        % length(Prfxs,PrefxLen),print_message(informational, PrefxLen),
+        % length(GoodPrfxs,GoodLen),print_message(informational, GoodLen),
+        % length(Runnables,RnblLen),print_message(informational, RnblLen),
     first_solution(Seq,Runnables,[on_fail(continue)]).
 
 
-main(Seq,Size,Guess,Depth):- 
+myMain(Guess,Depth,Seq,Size) :-
     mainMulti_Guess5Over(Seq,Size,Guess,Depth).
+
+% main(Seq,Size,Guess,Depth):- 
+%     mainMulti_Guess5Over(Seq,Size,Guess,Depth).
 
 
 % ourGuess(

@@ -2,7 +2,6 @@
 % set_prolog_flag(answer_write_options,[max_depth(0)]).
 
 
-
 buildUp4(L1,L2,L3,L4) :-
     powOf2(L1),
     powOf2(L2),
@@ -43,18 +42,24 @@ startSeqOption([X|R],Depth) :-
 optionForNext5([_,L2,L3,L4,L5], Nexts, [L2,L3,L4,L5,P]) :-
     contains(P,Nexts).
 
-nextPossible1(Lasts, N) :-
+nextPossible1(N,Lasts) :-
     powOf2(N),
     not(contains(N,Lasts)).
 
-nextPossible5([L1,L2,L3,L4,L5], [N1,N2,N3,N4,N5]) :-
-    nextPossible1([L1,L2,L3,L4,L5], N1),
-    nextPossible1([L1,L2,L3,L4,L5], N2),
-    nextPossible1([L1,L2,L3,L4,L5], N3),
-    nextPossible1([L1,L2,L3,L4,L5], N4),
-    nextPossible1([L1,L2,L3,L4,L5], N5),
-    noDups([N1,N2,N3,N4,N5]),
-    sorted([N1,N2,N3,N4,N5]).
+nextPossible5([L1,L2,L3,L4,L5], Nexts) :-
+    findall(Nx,
+            nextPossible1(Nx,[L1,L2,L3,L4,L5]),
+            NextOpts),
+    sort(NextOpts, Nexts).
+
+% nextPossible5([L1,L2,L3,L4,L5], [N1,N2,N3,N4,N5]) :-
+%     % nextPossible1(N1, [L1,L2,L3,L4,L5 ]),
+%     % nextPossible1(N2, [L1,L2,L3,L4,L5, N1]),
+%     % nextPossible1(N3, [L1,L2,L3,L4,L5, N1,N2]),
+%     % nextPossible1(N4, [L1,L2,L3,L4,L5, N1,N2,N3]),
+%     % nextPossible1(N5, [L1,L2,L3,L4,L5, N1,N2,N3,N4]),
+%     % noDups([N1,N2,N3,N4,N5]),
+%     sorted([N1,N2,N3,N4,N5]).
 
 recNextOptions(_,[],0).
 recNextOptions([L1,L2,L3,L4,L5], [P|ResNexts], Depth) :-
@@ -66,7 +71,7 @@ recNextOptions([L1,L2,L3,L4,L5], [P|ResNexts], Depth) :-
 recNextOptions(Lasts, [Next|ResNexts], Depth) :-
     Depth > 0,
     length(Lasts, LastsLen), LastsLen < 5,
-    nextPossible1(Lasts, Next),
+    nextPossible1(Next, Lasts),
     Depth1 is Depth-1,
     concatTo(LastsNext, Lasts, [Next]),
     recNextOptions(LastsNext, ResNexts, Depth1).
