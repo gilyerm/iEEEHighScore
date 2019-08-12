@@ -6,7 +6,7 @@ extendGuessBy(Guess,Depth,Prfxs):-
         (
             recNextOptions(Tail,Next,Depth),
             concatTo(Prf,Guess,Next),
-            isValidGuess(Guess)
+            isValidGuess(Prf)
         ),
         Prfxs).
 
@@ -25,7 +25,11 @@ threadQuery_Guess5Over(Seq,Size,Prf) :-
 isValidGuess(Guess) :-
     is_list(Guess),
     length(Guess,Len),
-    testExGoodSeq(Guess,Len).
+    (
+        Len =< 4  |
+        extendGoodSeq(Guess,[],Len)
+    ).
+    
 
 mainMulti_Guess5Over(Seq,Size,Guess,Depth):-
     length(Guess,GLen), /* GLen > 4, */
