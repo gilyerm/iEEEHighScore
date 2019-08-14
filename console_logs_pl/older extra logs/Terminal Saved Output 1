@@ -1,0 +1,62 @@
+Last login: Wed Aug  7 13:24:43 on ttys004
+h-MBP-sl-Gilad:~ GiladanoN$ ssh -lcolman 193.106.55.89 -p 2289
+colman@193.106.55.89's password: 
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic ppc64le)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '18.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Wed Aug  7 22:04:56 2019 from 213.57.185.155
+colman@ubuntu:~$ cd gilad_gil/iEEEHighScore/
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- [user].
+|: 
+|: aGuess192(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64]
+|: ).
+|: 
+|: multiExGoodSeq_N3(Seq,Size,Extra) :-
+|:     aGuess192(Guess),
+|:     %Start|_ is Seq,
+|:     concatTo(Start,Guess,Extra),
+|:     length(Seq,Size),
+|:     concatTo(Seq,Start,_),
+|:     testExGoodSeq(Seq,Size).
+|: 
+|: helper_N3(Seq,Ext,Size) :-
+|:     multiExGoodSeq_N3(Seq,Size,Ext).
+|: ^D% user://1 compiled 0.02 sec, 3 clauses
+true.
+
+?- helper_N3(Seq,[],246).
+false.
+
+?- halt.
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ exit
+logout
+Connection to 193.106.55.89 closed.
+h-MBP-sl-Gilad:~ GiladanoN$ exit
+logout
+Saving session...
+...copying shared history...
+...saving history...truncating history files...
+...completed.
+Deleting expired sessions...24 completed.
+
+[Process completed]
+

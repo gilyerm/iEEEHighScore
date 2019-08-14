@@ -1,0 +1,1028 @@
+Last login: Wed Aug  7 12:08:04 on ttys001
+h-MBP-sl-Gilad:~ GiladanoN$ man ssh
+h-MBP-sl-Gilad:~ GiladanoN$ ls ~/.ssh/config
+ls: /Users/GiladanoN/.ssh/config: No such file or directory
+h-MBP-sl-Gilad:~ GiladanoN$ nano ~/.ssh/config
+h-MBP-sl-Gilad:~ GiladanoN$ ssh -lcolman 193.106.55.89 -p 2289ssh -lcolman 193.106.55.89 -p 2289
+Bad port '2289ssh'
+h-MBP-sl-Gilad:~ GiladanoN$ ssh -lcolman 193.106.55.89 -p 2289
+colman@193.106.55.89's password: 
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic ppc64le)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '18.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Wed Aug  7 10:08:20 2019 from 213.57.185.155
+colman@ubuntu:~$ cd gilad_gil/iEEEHighScore/
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- multiExGoodSeq_N2(Seq,Size, [4,256,128]).
+ERROR: Arguments are not sufficiently instantiated
+ERROR: In:
+ERROR:   [11] _8432>0
+ERROR:   [10] multiExGoodSeq_N2(_8458,_8460,[4,256|...]) at /home/colman/gilad_gil/iEEEHighScore/rules.pl:853
+ERROR:    [9] <user>
+?- multiExGoodSeq_N2(Seq,243, [4,256,128]).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,128,512,8,64,4,256,128,16,512,32,64,8,256,128,512,4,32,64,256,16,512,128,8,32,256,1,512,2,128,64,16,1,512,32,128,256,64,4,512,16,128,2,32,64,512,256,1,128,16] ;
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,128,512,8,64,256,32,128,4,512,64,16,256,128,32,512,1,16,64,128,2,512,1,256,32,8,128,512,16,64,32,256,4,512,16,128,2,32,64,512,256,128,4,8,64,512,256,1,128,16] ;
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,128,512,16,64,4,256,128,8,512,64,32,256,4,16,512,128,2,32,64,16,256,512,128,32,1,8,256,512,64,4,128,32,256,512,2,1,128,64,16,512,8,32,128,256,64,512,1,32,16] ;
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,128,512,256,16,64,32,2,128,512,16,4,256,32,64,512,8,128,256,4,64,16,512,128,32,1,8,256,512,64,4,128,32,256,512,2,1,128,64,16,512,8,32,128,256,64,512,1,32,16] 
+Unknown action: (h for help)
+Action? 
+Unknown action: [ (h for help)
+Action? 
+Unknown action: 1 (h for help)
+Action? ;
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,512,16,128,64,4,256,8,512,128,16,32,256,64,4,512,128,8,1,32,256,512,128,2,16,64,32,256,512,2,1,128,64,16,512,256,4,32,128,64,512,8,256,32,128,64,1,512,256,4] 
+Unknown action: 2 (h for help)
+Action? 
+Unknown action: C (h for help)
+Action? .
+
+?- halt.
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- testExGoodSeq([4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64 |R],245).
+R = [32,4,512,128,256,16,64,32,2,128,512,16,4,64,256,128,32,8,512,64,256,1,128,32,512,16,64,1,128,2,512,256,32,1,8,128,512,4,256,64,8,128,512,16,256,1,64,32,512,128,256,16,2] ;
+R = [32,128,4,512,256,64,1,32,16,512,128,64,8,4,256,512,32,64,128,1,256,512,16,64,128,1,2,512,256,32,64,8,128,512,256,32,1,8,128,512,4,256,16,32,64,2,128,512,16,4,64,256,128] ;
+R = [128,32,8,512,16,64,128,1,2,512,256,32,128,4,64,512,256,1,8,32,128,512,256,64,1,16,32,512,128,2,64,16,32,256,4,512,8,128,64,256,4,16,512,128,64,32,1,256,512,128,16,2,4] ;
+R = [128,32,8,512,16,64,128,4,256,32,512,16,64,128,1,2,512,256,32,64,1,16,512,256,128,8,4,64,512,256,1,128,32,64,512,256,8,1,32,128,512,16,256,4,64,32,512,128,2,16,64,32,256] ;
+false.
+
+?- packet_write_wait: Connection to 193.106.55.89 port 2289: Broken pipe
+h-MBP-sl-Gilad:~ GiladanoN$ ssh -lcolman 193.106.55.89 -p 2289
+colman@193.106.55.89's password: 
+Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-116-generic ppc64le)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+New release '18.04.2 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Wed Aug  7 21:49:49 2019 from 213.57.185.155
+colman@ubuntu:~$ swipl rules.pl 
+ERROR: Prolog initialisation failed:
+ERROR: source_sink `'rules.pl'' does not exist
+colman@ubuntu:~$ cd gilad_gil/iEEEHighScore/
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- [user].
+|: 
+|: aGuess192(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64]
+|: ).
+|: 
+|: multiExGoodSeq_N3(Seq,Size,Extra) :-
+|:     aGuess192(Guess),
+|:     %Start|_ is Seq,
+|:     concatTo(Start,Guess,Extra),
+|:     length(Seq,Size),
+|:     concatTo(Seq,Start,_),
+|:     testExGoodSeq(Seq,Size).
+|: 
+|: helper_N3(Seq,Ext,Size) :-
+|:     multiExGoodSeq_N3(Seq,Size,Ext).
+|: 
+|: runTest_N3(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 1  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 2  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 4  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 8  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 16 ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 32 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 64 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 128]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 256]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,32, 512])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: ^D% user://1 compiled 0.02 sec, 4 clauses
+true.
+
+?- 
+|    runTest_N3(Sq,246).
+false.
+
+?- helper_N3(Sq,[128,4,8,512,256,32],245).
+false.
+
+?- halt.
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- [user].
+|: 
+|: aGuess192(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64]
+|: ).
+|: 
+|: multiExGoodSeq_N3(Seq,Size,Extra) :-
+|:     aGuess192(Guess),
+|:     %Start|_ is Seq,
+|:     concatTo(Start,Guess,Extra),
+|:     length(Seq,Size),
+|:     concatTo(Seq,Start,_),
+|:     testExGoodSeq(Seq,Size).
+|: 
+|: helper_N3(Seq,Ext,Size) :-
+|:     multiExGoodSeq_N3(Seq,Size,Ext).
+|: 
+|: runTest_N3(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 1  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 2  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 4  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 8  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 16 ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 32 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 64 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 128]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 256]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,4, 512])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: 
+|: ^D% user://1 compiled 0.02 sec, 4 clauses
+true.
+
+?- runTest_N3(Seq,244).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,32,512,256,8,64,4,128,512,16,256,1,64,32,512,128,2,16,64,32,256,128,8,512,16,32,64,256,4,512,128,8,1,32,256,512,2,128,1,64,16,512,32,128,1,256,64,512,8,128,16].
+
+?- runTest_N3(Seq,245).
+false.
+
+?- helper_N3(Sq,[128,4],245).
+false.
+
+?- halt.
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ 
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ 
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- [user].
+|: 
+|: aGuess192(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64]
+|: ).
+|: 
+|: multiExGoodSeq_N3(Seq,Size,Extra) :-
+|:     aGuess192(Guess),
+|:     %Start|_ is Seq,
+|:     concatTo(Start,Guess,Extra),
+|:     length(Seq,Size),
+|:     concatTo(Seq,Start,_),
+|:     testExGoodSeq(Seq,Size).
+|: 
+|: helper_N3(Seq,Ext,Size) :-
+|:     multiExGoodSeq_N3(Seq,Size,Ext).
+|: 
+|: runTest_N3(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 1  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 2  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 4  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 8  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 16 ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 32 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 64 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 128]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 256]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,128, 512])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: ^D% user://1 compiled 0.02 sec, 4 clauses
+true.
+
+?- runTest_N3(Seq,245).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,32,128,4,512,256,64,1,32,16,512,128,64,8,4,256,512,32,64,128,1,256,512,16,64,128,1,2,512,256,32,64,8,128,512,256,32,1,8,128,512,4,256,16,32,64,2,128,512,16,4,64,256,128].
+
+?- runTest_N3(Seq,246).
+false.
+
+?- halt.
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ 
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ 
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- [user].
+|: 
+|: aGuess192(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64]
+|: ).
+|: 
+|: multiExGoodSeq_N3(Seq,Size,Extra) :-
+|:     aGuess192(Guess),
+|:     %Start|_ is Seq,
+|:     concatTo(Start,Guess,Extra),
+|:     length(Seq,Size),
+|:     concatTo(Seq,Start,_),
+|:     testExGoodSeq(Seq,Size).
+|: 
+|: helper_N3(Seq,Ext,Size) :-
+|:     multiExGoodSeq_N3(Seq,Size,Ext).
+|: 
+|: runTest_N3(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 1  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 2  ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 4  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 8  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 16 ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 32 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 64 ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 128]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 256]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,4, 512])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: 
+|: ^D% user://1 compiled 0.03 sec, 4 clauses
+true.
+
+?- runTest_N3(Seq,246).
+false.
+
+?- helper_N3(Sq,[128],244).
+Sq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,8,512,256,32,64,128,8,512,16,32,64,1,256,512,8,32,128,1,256,512,64,4,128,32,256,512,2,1,128,64,16,512,4,256,32,64,16,128,512,2,32,64,256,16,512,1,128,32,64,256] .
+
+?- helper_N3(Sq,[128],245).
+Sq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,32,8,512,16,64,128,1,2,512,256,32,128,4,64,512,256,1,8,32,128,512,256,64,1,16,32,512,128,2,64,16,32,256,4,512,8,128,64,256,4,16,512,128,64,32,1,256,512,128,16,2,4] .
+
+?- halt.
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ 
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ 
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- [user].
+|: 
+|: aGuess192(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256,64]
+|: ).
+|: 
+|: multiExGoodSeq_N3(Seq,Size,Extra) :-
+|:     aGuess192(Guess),
+|:     %Start|_ is Seq,
+|:     concatTo(Start,Guess,Extra),
+|:     length(Seq,Size),
+|:     concatTo(Seq,Start,_),
+|:     testExGoodSeq(Seq,Size).
+|: 
+|: helper_N3(Seq,Ext,Size) :-
+|:     multiExGoodSeq_N3(Seq,Size,Ext).
+|: 
+|: runTest_N3_32(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[32,  1, 2      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  1, 4      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  1, 8      ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  1, 128    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  1, 512    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  2, 1      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  2, 4      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  2, 8      ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  2, 128    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  2, 512    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  4, 1      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  4, 2      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  4, 8      ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  4, 128    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  4, 512    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  8, 1      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  8, 2      ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  8, 4      ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  8, 128    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  8, 512    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  128, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  128, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[32,  128, 4    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  128, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[32,  128, 512  ])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: 
+|: runTest_N3_128(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[128,  1, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  1, 4    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  1, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  1, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  1, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  2, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  2, 4    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  2, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  2, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  2, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  4, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  4, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  4, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  4, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  4, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  8, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  8, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  8, 4    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  8, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  8, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  32, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  32, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[128,  32, 4   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  32, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[128,  32, 512 ])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: 
+|: 
+|: ^D% user://1 compiled 0.05 sec, 5 clauses
+true.
+
+?- runTest_N3_32(Seq,244).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,32,128,1,512,16,256,64,128,4,8,512,256,32,64,128,8,512,16,32,64,1,256,512,8,32,128,1,256,512,64,4,128,32,256,512,2,1,128,64,16,512,4,256,32,64,16,2,128,512,32,64,16].
+
+?- runTest_N3_32(Seq,245).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,32,4,512,128,256,16,64,32,2,128,512,16,4,64,256,128,32,8,512,64,256,1,128,32,512,16,64,1,128,2,512,256,32,1,8,128,512,4,256,64,8,128,512,16,256,1,64,32,512,128,256,16,2].
+
+?- runTest_N3_32(Seq,246).
+false.
+
+?- runTest_N3_128(Seq,244).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,32,512,256,8,64,4,128,512,16,256,1,64,32,512,128,2,16,64,32,256,128,8,512,16,32,64,256,4,512,128,8,1,32,256,512,2,128,1,64,16,512,32,128,1,256,64,512,8,128,16].
+
+?- runTest_N3_128(Seq,245).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,32,8,512,16,64,128,1,2,512,256,32,128,4,64,512,256,1,8,32,128,512,256,64,1,16,32,512,128,2,64,16,32,256,4,512,8,128,64,256,4,16,512,128,64,32,1,256,512,128,16,2,4].
+
+?- runTest_N3_128(Seq,246).
+false.
+
+?- [user].
+|: 
+|: 
+|: runTest_N3_128(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 128  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 32  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 512 ])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+
+Warning: user://2:120:
+Warning:    Redefined static procedure runTest_N3_128/2
+Warning:    Previously defined at user://1:62
+|: runTest_N3_4(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  1, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  2, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  8, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 128  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  32, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 32  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[4,  128, 512 ])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: ^D% user://2 compiled 0.04 sec, 2 clauses
+true.
+
+?- runTest_N3_4(Seq,244).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,4,128,8,512,256,32,64,128,16,512,4,256,32,64,16,512,8,128,32,64,256,1,512,128,16,32,2,64,256,512,8,1,32,128,256,512,16,64,1,128,2,512,256,32,4,128,64,512,256,8,4,32].
+
+?- runTest_N3_4(Seq,245).
+false.
+
+?- helper_N3(Sq,[4],245).
+false.
+
+?- runTest_N3_128(Seq,246).
+false.
+
+?- [user].
+|: 
+|: runTest_N3_192cont(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 2, 4     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 2, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 2, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 2, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 2, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 4, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 4, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 4, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 4, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 4, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 8, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 8, 4     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 8, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 8, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 8, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 32, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 32, 4    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 32, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 32, 128  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 32, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 128, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 128, 4   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 128, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 128, 32  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 1, 128, 512 ]),
+|: 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 1, 4     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 1, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 1, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 1, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 1, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 4, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 4, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 4, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 4, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 4, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 8, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 8, 4     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 8, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 8, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 8, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 32, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 32, 4    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 32, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 32, 128  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 32, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 128, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 128, 4   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 128, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 128, 32  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 2, 128, 512 ]),
+|: 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 1, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 1, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 1, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 1, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 1, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 2, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 2, 8     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 2, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 2, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 2, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 8, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 8, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 8, 32    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 8, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 8, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 32, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 32, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 32, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 32, 128  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 32, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 128, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 128, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 128, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 128, 32  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 4, 128, 512 ]),
+|: 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 1, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 1, 4     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 1, 8     ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 1, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 1, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 2, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 2, 4     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 2, 8     ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 2, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 2, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 4, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 4, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 4, 8     ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 4, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 4, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 8, 1     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 8, 2     ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 8, 4     ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 8, 128   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 8, 512   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 128, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 128, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 128, 4   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 128, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 32, 128, 512 ]),
+|: 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 1, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 1, 4    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 1, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 1, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 1, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 2, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 2, 4    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 2, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 2, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 2, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 4, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 4, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 4, 8    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 4, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 4, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 8, 1    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 8, 2    ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 8, 4    ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 8, 32   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 8, 512  ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 32, 1   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 32, 2   ]), 
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 32, 4   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 32, 8   ]),
+|:             multiExGoodSeq_N3(Seq,Size,[ 128, 32, 512 ])
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: 
+|: ^D% user://3 compiled 0.09 sec, 1 clauses
+true.
+
+?- 
+|    runTest_N3_192cont(Seq,195).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,128].
+
+?- runTest_N3_192cont(Seq,220).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,1,32,128,512,8,64,4,256,128,16,512,8,32,64,256,128,4,512,32,64,256,16,128,512,1,32,256,2].
+
+?- runTest_N3_192cont(Seq,230).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,32,4,128,512,256,8,32,1,128,512,16,64,4,256,128,512,16,32,64,1,256,128,512,2,32,64,256,16,128,512,8,64,32,256,128,512,1,16].
+
+?- runTest_N3_192cont(Seq,240).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,32,512,256,8,64,4,128,512,16,256,1,64,32,512,128,2,16,64,32,256,128,8,512,16,32,64,256,4,512,128,8,1,32,256,512,2,128,1,64,16,512,32,128,1,256,64].
+
+?- runTest_N3_192cont(Seq,242).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,32,512,256,8,64,4,128,512,16,256,1,64,32,512,128,2,16,64,32,256,128,8,512,16,32,64,256,4,512,128,8,1,32,256,512,2,128,1,64,16,512,32,128,1,256,64,512,4].
+
+?- runTest_N3_192cont(Seq,244).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,32,512,256,8,64,4,128,512,16,256,1,64,32,512,128,2,16,64,32,256,128,8,512,16,32,64,256,4,512,128,8,1,32,256,512,2,128,1,64,16,512,32,128,1,256,64,512,8,128,16].
+
+?- runTest_N3_192cont(Seq,245).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,32,4,512,128,256,16,64,32,2,128,512,16,4,64,256,128,32,8,512,64,256,1,128,32,512,16,64,1,128,2,512,256,32,1,8,128,512,4,256,64,8,128,512,16,256,1,64,32,512,128,256,16,2].
+
+?- runTest_N3_192cont(Seq,246).
+false.
+
+?- [user].
+|: 
+|: aGuess191(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16,256]
+|: ).
+|: 
+|: runTest_N3_191cont(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size,  [1,2,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,2,32]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,2,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,2,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,4,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,4,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,4,32]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,4,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,4,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,32,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,32,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,32,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,32,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,32,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,64,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,64,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,64,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,64,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,64,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,128,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,128,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,128,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [1,128,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [1,128,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,1,4]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,1,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,1,32]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,1,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,1,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,4,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,4,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,4,32]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,4,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,4,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,32,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,32,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,32,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,32,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,32,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,64,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,64,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,64,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,64,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,64,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,128,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,128,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,128,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [2,128,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [2,128,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,1,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,1,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,1,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,1,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,1,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,2,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,2,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,2,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,2,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,2,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,4,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,4,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,4,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,4,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,4,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,64,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,64,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,64,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,64,8]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,64,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,128,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,128,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,128,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [32,128,8]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [32,128,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,1,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,1,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,1,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,1,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,1,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,2,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,2,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,2,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,2,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,2,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,4,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,4,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,4,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,4,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,4,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,32,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,32,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,32,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,32,8]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,32,128]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,128,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,128,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,128,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [64,128,8]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [64,128,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,1,2]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,1,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,1,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,1,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,1,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,2,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,2,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,2,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,2,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,2,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,4,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,4,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,4,8]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,4,32]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,4,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,32,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,32,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,32,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,32,8]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,32,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,64,1]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,64,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,64,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size,  [128,64,8]   ),
+|:             multiExGoodSeq_N3(Seq,Size,  [128,64,32]   )
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: ^D% user://4 compiled 0.08 sec, 2 clauses
+true.
+
+?- runTest_N3_191cont(Seq,244).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,4,32,512,256,8,64,4,128,512,16,256,1,64,32,512,128,2,16,64,32,256,128,8,512,16,32,64,256,4,512,128,8,1,32,256,512,2,128,1,64,16,512,32,128,1,256,64,512,8,128,16].
+
+?- runTest_N3_191cont(Seq,245).
+Seq = [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128,4,8,512,16,256,64,128,32,8,512,16,64,128,1,2,512,256,32,128,4,64,512,256,1,8,32,128,512,256,64,1,16,32,512,128,2,64,16,32,256,4,512,8,128,64,256,4,16,512,128,64,32,1,256,512,128,16,2,4].
+
+?- runTest_N3_191cont(Seq,246).
+false.
+
+?- 
+|    [user].
+|: 
+|: aGuess190(
+|:     [4,256,128,1,2,8,4,16,32,1,2,8,4,64,16,1,2,8,128,32,4,1,2,64,128,8,4,1,16,256,2,8,4,1,512,16,2,8,4,128,256,1,16,2,32,64,4,8,1,256,32,2,4,8,512,64,1,2,4,256,512,8,1,2,32,64,128,4,1,16,32,64,8,2,128,16,32,1,8,256,64,2,4,16,128,1,512,2,4,32,16,128,8,64,1,32,512,2,16,8,64,256,1,128,2,32,512,4,64,1,16,256,2,512,4,64,16,8,32,256,2,64,1,512,16,8,32,4,256,64,1,128,16,32,256,2,4,64,128,512,1,8,16,256,128,2,64,8,512,32,4,1,16,256,512,32,2,8,128,256,512,1,4,32,128,256,2,64,512,16,32,4,128,64,8,16,256,4,128,2,512,8,16,256,32,128, 4,8,512,16]
+|: ).
+|: 
+|: runTest_N3_190cont(Seq,Size) :-
+|:     first_solution(Seq, [
+|:             multiExGoodSeq_N3(Seq,Size, [1,2,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,2,32]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,2,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,2,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,2,256]   ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,32,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,32,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,32,64]   ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,32,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,32,256]   ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,64,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,64,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,64,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,64,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,64,256]   ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,128,2]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,128,4]   ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,128,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,128,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,128,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,256,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,256,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [1,256,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,256,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [1,256,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,1,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,1,32]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,1,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,1,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,1,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,32,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,32,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,32,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,32,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,32,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,64,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,64,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,64,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,64,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,64,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,128,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,128,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,128,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,128,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,128,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,256,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,256,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [2,256,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,256,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [2,256,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,1,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,1,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,1,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,1,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,1,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,2,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,2,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,2,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,2,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,2,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,64,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,64,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,64,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,64,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,64,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,128,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,128,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,128,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,128,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,128,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,256,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,256,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [32,256,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,256,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [32,256,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,1,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,1,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,1,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,1,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,1,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,2,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,2,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,2,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,2,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,2,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,32,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,32,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,32,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,32,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,32,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,128,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,128,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,128,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,128,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,128,256]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,256,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,256,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [64,256,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,256,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [64,256,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,1,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,1,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,1,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,1,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,1,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,2,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,2,4]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,2,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,2,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,2,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,32,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,32,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,32,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,32,64]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,32,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,64,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,64,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,64,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,64,32]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,64,128]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,128,1]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,128,2]    ), 
+|:             multiExGoodSeq_N3(Seq,Size, [256,128,4]    ),
+|:             multiExGoodSeq_N3(Seq,Size, [256,128,32]    )
+|:         ],
+|:         [
+|:             on_fail(continue)
+|:         ]
+|:     ).
+|: 
+|: ^D% user://5 compiled 0.19 sec, 2 clauses
+true.
+
+?- 
+|    runTest_N3_190cont(Seq,246).
+false.
+
+?- runMain_N3([2|R],240).
+^CAction (h for help) ? Unknown option (h for help)
+Action (h for help) ? exit (status 4)
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ swipl rules.pl 
+Welcome to SWI-Prolog (threaded, 64 bits, version 8.1.10-59-g09a7d55)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+    CMake built from "/home/colman/gilad_gil/swipl-devel/build"
+
+For online help and background, visit http://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- set_prolog_flag(answer_write_options,[max_depth(0)]).
+true.
+
+?- runMain_N3([2|R],230).
+R = [64,1,4,8,16,2,32,1,4,8,16,128,2,1,4,8,256,16,2,1,4,64,32,8,2,1,128,64,4,8,2,16,512,1,4,8,32,128,2,16,1,64,8,32,128,2,256,1,4,32,16,64,2,1,256,4,512,8,2,1,32,256,16,8,2,64,32,256,1,4,8,64,512,2,1,4,32,128,16,2,64,4,256,8,16,32,64,4,128,1,16,256,2,512,4,32,8,16,128,1,64,32,2,512,4,16,64,1,256,8,2,128,4,512,1,16,32,64,256,2,4,128,16,512,8,1,32,64,256,128,2,1,512,8,256,16,2,128,32,512,1,4,64,128,256,8,1,32,512,128,16,4,64,8,512,32,2,128,4,64,512,8,256,1,128,4,512,8,32,256,16,128,1,64,512,2,16,8,128,64,32,4,256,8,128,16,64,512,2,32,128,256,4,16,64,32,512,8,128,16,256,1,512,32,64,128,256,8,512,2,32,16,256,4,512,128,32,64,16,256,512,128,2,64,8,256,512,16,4].
+
+?- runMain_N3([2|R],235).
+R = [32,64,1,4,8,2,16,32,1,4,8,2,128,16,1,4,8,64,128,2,1,4,32,256,8,2,1,4,512,16,8,2,1,64,32,16,4,2,128,64,32,1,4,256,16,2,8,32,64,4,16,128,1,32,2,8,512,4,64,1,2,16,128,256,4,1,2,512,32,16,4,8,128,64,32,1,16,8,128,64,2,32,16,256,1,8,2,64,512,16,1,4,256,8,64,2,16,4,256,32,8,64,1,512,16,32,4,64,256,2,1,16,512,128,4,2,8,256,512,1,4,32,8,128,2,16,256,32,512,1,2,64,128,256,4,1,512,64,32,128,2,256,1,512,64,8,128,2,256,32,4,512,8,64,16,32,128,256,1,8,16,512,32,2,64,8,256,512,4,16,32,128,256,8,64,16,512,128,1,8,256,64,16,4,128,512,8,32,16,256,64,512,2,128,16,256,64,512,4,128,1,32,256,64,2,512,4,16,256,128,8,512,32,64,256,1,16,128,512,32,64,256,4,128,8,1,512,32,256,128,4,8,512,64].
+
+?- runMain_N3([2|R],238).
+^Z
+[1]+  Stopped                 swipl rules.pl
+colman@ubuntu:~/gilad_gil/iEEEHighScore$ packet_write_wait: Connection to 193.106.55.89 port 2289: Broken pipe
+h-MBP-sl-Gilad:~ GiladanoN$ 
